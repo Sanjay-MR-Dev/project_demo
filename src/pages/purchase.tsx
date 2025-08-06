@@ -18,7 +18,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { CommonHeaderBox,CommonTypography,ErrorButton, SuccessButton } from "css/style";
 
 const Purchase: React.FC = () => {
-    const today = dayjs();
+    const today = dayjs();.
     const [invoiceDate, setInvoiceDate] = React.useState<Dayjs | null>(today);
     const [voucherDate, setVoucherDate] = React.useState<Dayjs | null>(today);
     const initialValue = {

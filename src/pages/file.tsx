@@ -29,6 +29,7 @@ const MyFile: React.FC = () => {
     const [open, setOpen] = React.useState<boolean>(false);
     const [tableData, setTableData] = React.useState<RMItem[]>([]);
     const [itemGroupOptions, setItemGroupOptions] = React.useState<{ value: string; label: string }[]>([]);
+    const a = 1
 
     const columns: MRT_ColumnDef<RMItem>[] = [
         { Cell: ({ row }) => row.index + 1, header: '#', id: 'serial-number' },

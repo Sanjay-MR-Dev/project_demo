@@ -2,6 +2,7 @@
   "name": "project",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
@@ -58,8 +59,12 @@
     ]
   },
   "devDependencies": {
+    "@eslint/js": "^9.32.0",
     "@types/react": "^19.1.8",
-    "eslint": "^9.0.0",
-    "husky": "^9.1.7"
+    "eslint": "^9.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.3.0",
+    "husky": "^9.1.7",
+    "typescript-eslint": "^8.39.0"
   }
 }

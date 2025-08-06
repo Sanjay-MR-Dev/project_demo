@@ -1,0 +1,86 @@
+import { createTheme, responsiveFontSizes } from '@mui/material/styles';
+import colour from 'css/colourFile';
+
+let themes = createTheme({
+  palette: {
+    mode: 'light',
+    background: {
+      default: colour.ghostWhite,
+    },
+    primary: {
+      main: colour.primary,
+    },
+  },
+  typography: {
+    h5: {
+      fontSize: '1.5rem',
+      fontStyle: '"Fredoka", sans-serif',
+      '@media (max-width:600px)': {
+        fontSize: '1.2rem',
+      },
+    },
+    h4: {
+      fontSize: '1.7rem',
+      fontStyle: '"Fredoka", sans-serif',
+      '@media (max-width:600px)': {
+        fontSize: '1.2rem',
+      },
+    },
+    subtitle2: {
+      fontSize: '0.875rem',
+      '@media (max-width:600px)': {
+        fontSize: '0.75rem',
+      },
+    },
+    button: {
+      fontSize: '0.875rem',
+      '@media (max-width:600px)': {
+        fontSize: '0.75rem',
+      },
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          padding: '6px 16px',
+          backgroundColor: theme.palette.primary.main,
+          color: colour.white,
+          '&:hover': {
+            backgroundColor: theme.palette.primary,
+          },
+          '@media (max-width:600px)': {
+            padding: '4px 10px',
+            minWidth: '80px',
+          },
+        }),
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: ({ theme }) => ({
+          backgroundColor: theme.palette.primary.main,
+          color: colour.white,
+        }),
+      },
+    },
+    MuiListItemIcon: {
+      styleOverrides: {
+        root: {
+          color: colour.black,
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          color: colour.black,
+        },
+      },
+    },
+  },
+});
+
+themes = responsiveFontSizes(themes);
+
+export default themes;

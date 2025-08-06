@@ -72,7 +72,7 @@ const Report: React.FC = () => {
             }
         };
         initialFetch();
-    }, []);
+    }, [setLoading]);
 
 
     const filterFetch = async () => {

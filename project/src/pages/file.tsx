@@ -88,7 +88,7 @@ const MyFile: React.FC = () => {
         };
         fetchItem();
         fetchItemGroups();
-    }, []);
+    }, [setLoading]);
 
     const formik = useFormik({
         initialValues: initialValue,

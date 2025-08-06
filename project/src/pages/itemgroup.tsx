@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect } from 'react';
 import { MRT_ColumnDef } from 'material-react-table';
 import {
     Box, Modal, Typography, Stack
@@ -6,7 +6,7 @@ import {
 import { useFormik } from 'formik';
 import *  as yup from 'yup';
 import ListIcon from '@mui/icons-material/Add';
-import { CommonHeaderBox, CommonModalBox, CommonTypography, DropDownStyle, ErrorButton } from 'css/style';
+import { CommonHeaderBox, CommonModalBox, CommonTypography, ErrorButton } from 'css/style';
 import CustomTextFields from 'components/TextField/textfield';
 import CustomTable from 'components/MaterialReactTable/materialReactTable';
 import CustomButton from 'components/Button/button';
@@ -54,7 +54,7 @@ const ItemGroup: React.FC = () => {
             }
         }
         fetchItem();
-    }, []);
+    }, [setLoading]);
 
     const formik = useFormik({
         initialValues: initialValue,

@@ -23,7 +23,7 @@ interface CustomRadioGroupProps {
     spacing?: number;
     direction: 'row' | 'column';
     helperText?: string;
-    fullWidth?: Boolean;
+    fullWidth?: boolean;
     Component?: ElementType;
 }
 

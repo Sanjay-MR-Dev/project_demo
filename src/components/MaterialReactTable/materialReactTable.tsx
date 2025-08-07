@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { JSX } from 'react';
 import { MaterialReactTable, MaterialReactTableProps, MRT_ColumnDef } from 'material-react-table';
 import colour from 'css/colourFile';
 
 
-interface CustomMRTProps<T extends Record<string, any>> {
+interface CustomMRTProps<T extends object> {
     columns: MRT_ColumnDef<T>[];
     data: T[];
     options?: Partial<MaterialReactTableProps<T>>
 }
 
-const CustomTable = <T extends Record<string, any>>({
-    columns, data, ...options
-}: CustomMRTProps<T>) => {
+export function CustomTable<T extends object>({
+    columns,
+    data,
+    ...options
+}: CustomMRTProps<T>): JSX.Element {
     return (
         <MaterialReactTable
             columns={columns}
@@ -50,4 +52,3 @@ const CustomTable = <T extends Record<string, any>>({
     )
 }
 
-export default CustomTable;

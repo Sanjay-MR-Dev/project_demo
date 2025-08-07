@@ -11,7 +11,7 @@ import { useFormik } from 'formik';
 import CustomDatePicker from 'components/Date/date';
 import CustomButton from 'components/Button/button';
 import { MRT_ColumnDef } from 'material-react-table';
-import CustomTable from 'components/MaterialReactTable/materialReactTable';
+import {CustomTable} from 'components/MaterialReactTable/materialReactTable';
 import dayjs, { Dayjs } from 'dayjs';
 import instance from '../axios/axiosinstance';
 import { useLoading } from "components/Loader/loadingContext";
@@ -23,13 +23,6 @@ interface RMItem {
     is_stockable: string;
     status: string;
 }
-
-const data: RMItem[] = [
-    { item: "Potato", item_group: "Vegetable", is_taxable: "Yes", is_stockable: "Yes", status: "Active" },
-    { item: "Tomato", item_group: "Vegetable", is_taxable: "Yes", is_stockable: "Yes", status: "Active" },
-    { item: "Onion", item_group: "Vegetable", is_taxable: "No", is_stockable: "No", status: "Active" },
-    { item: "Apple", item_group: "Fruit", is_taxable: "Yes", is_stockable: "Yes", status: "In Active" },
-]
 
 const columns: MRT_ColumnDef<RMItem>[] = [
     { accessorKey: 'item', header: 'Item' },
@@ -170,7 +163,7 @@ const Report: React.FC = () => {
                 </CommonCollapseBox >
             </Collapse >
             <Box marginTop='15px'>
-                <CustomTable data={datas} columns={columns} />
+                <CustomTable<RMItem> data={datas} columns={columns} />
             </Box>
 
         </Box>

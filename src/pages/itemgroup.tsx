@@ -8,14 +8,14 @@ import *  as yup from 'yup';
 import ListIcon from '@mui/icons-material/Add';
 import { CommonHeaderBox, CommonModalBox, CommonTypography, ErrorButton } from 'css/style';
 import CustomTextFields from 'components/TextField/textfield';
-import CustomTable from 'components/MaterialReactTable/materialReactTable';
+import {CustomTable} from 'components/MaterialReactTable/materialReactTable';
 import CustomButton from 'components/Button/button';
 import instance from '../axios/axiosinstance';
 import { useLoading } from 'components/Loader/loadingContext';
 
 interface RMItem {
     item_group: string;
-    status: string;
+    status?: string;
 }
 
 const ItemGroup: React.FC = () => {
@@ -43,8 +43,9 @@ const ItemGroup: React.FC = () => {
             setLoading(true);
             try {
                 const response = await instance.post(`/getitemgroup/value`);
-                const values = response.data?.map((value: any) => ({
+                const values = response.data?.map((value: RMItem) => ({
                     item_group: value.item_group,
+                    status : value.status || "Active",
                 }));
                 setTableData(values);
             } catch (error) {
@@ -86,6 +87,7 @@ const ItemGroup: React.FC = () => {
         setOpen(false);
     }
 
+
     return (
         <>
             <CommonHeaderBox>
@@ -102,7 +104,7 @@ const ItemGroup: React.FC = () => {
                 />
             </CommonHeaderBox>
             <Box marginTop='15px'>
-                <CustomTable columns={columns} data={tableData} />
+                <CustomTable<RMItem> columns={columns} data={tableData} />
             </Box>
 
             <Modal open={open} onClose={() => setOpen(false)}>

@@ -19,7 +19,7 @@ interface CheckBoxProps {
   Component?: ElementType
 }
 
-const defaultStyles = styled(Checkbox)(({ theme }) => ({
+const defaultStyles = styled(Checkbox)(() => ({
   marginBottom: '16px',
   '& .MuiSvgIcon-root': {
     fontSize: 28,

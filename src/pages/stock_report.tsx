@@ -1,4 +1,3 @@
-import CustomTable from 'components/MaterialReactTable/materialReactTable';
 import {
     CollapseStack,SrDropDown, StyledSpaceBox, ViewByContainer,
     ViewByCheckGroup, ViewByButtonGroup
@@ -16,6 +15,7 @@ import { useFormik } from 'formik';
 import CustomCheckBox from 'components/CheckedBox/checkedBox';
 import CustomButton from 'components/Button/button';
 import instance from '../axios/axiosinstance';
+import {CustomTable} from 'components/MaterialReactTable/materialReactTable';
 
 
 interface StockItems {
@@ -85,7 +85,6 @@ const dataa: StockItems[] = [
 
 const Stockreport: React.FC = () => {
     const [open, setOpen] = React.useState(false);
-    const [data, setData] = React.useState([]);
     const today = dayjs();
     const [fromDate, setFromDate] = React.useState<Dayjs | null>(today);
 
@@ -113,7 +112,7 @@ const Stockreport: React.FC = () => {
         const initialFetch = async () => {
             try {
                 const response = await instance.get('/api/stock-report');
-                setData(response.data);
+                console.log(response.data);
             }
             catch (err) {
                 console.error("Fetch Error", err);
@@ -131,7 +130,8 @@ const Stockreport: React.FC = () => {
         }
         try {
             const response = await instance.post('/api/stock-report', payload);
-            setData(response.data)
+            console.log(response.data);
+            
         } catch (err) {
             console.error("Fetch Error", err);
         }
@@ -235,6 +235,7 @@ const Stockreport: React.FC = () => {
                                     { name: "stock_value", label: "Stock Value", checked: formik.values.stock_value },
                                 ].map((opt) => (
                                     <CustomCheckBox
+                                    key={opt.name}
                                         options={[{
                                             name: opt.name,
                                             label: opt.label,
@@ -265,7 +266,7 @@ const Stockreport: React.FC = () => {
             </Collapse >
 
             <Box marginTop='15px'>
-                <CustomTable data={dataa} columns={dynamicColumns} />
+                <CustomTable<StockItems> data={dataa} columns={dynamicColumns} />
             </Box>
         </Box >
 

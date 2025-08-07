@@ -25,7 +25,8 @@ const Masters: React.FC = () => {
         initialValues: initialValue,
         validationSchema,
         onSubmit(values, { resetForm }) {
-            formik.resetForm();
+            console.log(values);
+            resetForm();
         },
 
     });

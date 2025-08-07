@@ -12,8 +12,8 @@ interface DropDowProps {
     label?: string,
     label_name?: string;
     options: { value: string, label: string }[];
-    onChange: (e: SelectChangeEvent<any>) => void;
-    onBlur: (e: FocusEvent<any>) => void;
+    onChange: (e: SelectChangeEvent<string>) => void;
+    onBlur: (e: FocusEvent<HTMLElement>) => void;
     error?: boolean;
     helperText?: ReactNode;
     fullWidth?: boolean;

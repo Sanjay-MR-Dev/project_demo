@@ -11,8 +11,8 @@ interface CustomTextFieldProps extends Omit<TextFieldProps, 'onChange' | 'onBlur
     id: string;
     label?: string,
     label_name?: string,
-    onChange: (e: ChangeEvent<any>) => void;
-    onBlur?: (e: FocusEvent<any>) => void;
+    onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+    onBlur?: (e: FocusEvent<HTMLInputElement>) => void;
     error?: boolean;
     helperText?: ReactNode;
     multiline?: boolean;

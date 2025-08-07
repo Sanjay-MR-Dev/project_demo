@@ -8,7 +8,7 @@ import *  as yup from 'yup';
 import ListIcon from '@mui/icons-material/Add';
 import { CommonHeaderBox, CommonModalBox, CommonTypography, DropDownStyle, ErrorButton } from 'css/style';
 import CustomTextFields from 'components/TextField/textfield';
-import CustomTable from 'components/MaterialReactTable/materialReactTable';
+import {CustomTable} from 'components/MaterialReactTable/materialReactTable';
 import CustomDropDown from 'components/DropDown/dropDowm';
 import CustomRadioGroup from 'components/RadioButton/radioButton'
 import CustomCheckBox from 'components/CheckedBox/checkedBox';
@@ -24,12 +24,16 @@ interface RMItem {
     status: string;
 }
 
+interface ItemGroup {
+    item_group : string
+}
+
 const MyFile: React.FC = () => {
     const { setLoading } = useLoading();
     const [open, setOpen] = React.useState<boolean>(false);
     const [tableData, setTableData] = React.useState<RMItem[]>([]);
     const [itemGroupOptions, setItemGroupOptions] = React.useState<{ value: string; label: string }[]>([]);
-    const a = 1
+    
 
     const columns: MRT_ColumnDef<RMItem>[] = [
         { Cell: ({ row }) => row.index + 1, header: '#', id: 'serial-number' },
@@ -60,7 +64,7 @@ const MyFile: React.FC = () => {
             setLoading(true);
             try {
                 const response = await instance.post(`/getitemmaster/list`);
-                const values = response.data?.map((value: any) => ({
+                const values = (response.data as RMItem[])?.map((value) => ({
                     item: value.item,
                     item_group: value.item_group,
                     is_taxable: value.is_taxable,
@@ -78,7 +82,7 @@ const MyFile: React.FC = () => {
         const fetchItemGroups = async () => {
             try {
                 const res = await instance.post(`/getitemgroup/value`);
-                const options = res.data?.map((value: any) => ({
+                const options = (res.data)?.map((value: ItemGroup) => ({
                     value: value.item_group,
                     label: value.item_group,
                 }));
@@ -141,7 +145,7 @@ const MyFile: React.FC = () => {
                 />
             </CommonHeaderBox>
             <Box marginTop='15px'>
-                <CustomTable columns={columns} data={tableData} />
+                <CustomTable<RMItem> columns={columns} data={tableData} />
             </Box>
 
             <Modal open={open} onClose={() => setOpen(false)}>

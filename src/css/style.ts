@@ -16,8 +16,7 @@ interface StyleProps {
 }
 
 //common style
-export const CommonHeaderBox = styled(Box, { shouldForwardProp: (prop) => prop !== 'collapseOpen' })
-    <{ collapseOpen?: boolean }>(({ collapseOpen }) => ({
+export const CommonHeaderBox = styled(Box, { shouldForwardProp: (prop) => prop !== 'collapseOpen' })<{ collapseOpen?: boolean }>(({ collapseOpen }) => ({
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -247,7 +246,7 @@ export const HoverStyle = styled(Box, {
     },
 }));
 
-export const PaperWidth = styled(Paper)(({ theme }) => ({
+export const PaperWidth = styled(Paper)(() => ({
     marginTop: '0.125rem',
     fontFamily: '"Fredoka", sans-serif"',
     color: colour.red,

@@ -1,4 +1,10 @@
-import axios, { AxiosInstance } from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+
+
+interface customConfig extends AxiosRequestConfig {
+    _retry?: boolean;
+    headers?: AxiosRequestConfig['headers'];
+}
 
 const instance: AxiosInstance = axios.create({
     baseURL: 'http://localhost:5000/api',
@@ -11,7 +17,7 @@ const instance: AxiosInstance = axios.create({
 let isRefreshing = false;
 let refreshSubscribers: ((token: string) => void)[] = [];
 
-function getCookie(name : string): string | null {
+function getCookie(name: string): string | null {
     const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
     if (match) {
         console.log(match[2]);
@@ -48,10 +54,10 @@ instance.interceptors.request.use((config) => {
 instance.interceptors.response.use(
     (response) => response,
     async (error) => {
-        const originalRequest = error.config;
+        const originalRequest = (error.config ?? {}) as customConfig;
 
-        if ((error.response?.status === 401 || error.response?.status === 403) && !(originalRequest as any)._retry) {
-            (originalRequest as any)._retry = true;
+        if ((error.response?.status === 401 || error.response?.status === 403) && !originalRequest._retry) {
+            originalRequest._retry = true;
 
             const refreshToken = localStorage.getItem('refreshToken');
             if (!refreshToken) {
@@ -64,8 +70,8 @@ instance.interceptors.response.use(
 
             if (isRefreshing) {
                 return new Promise((resolve) => {
-                    subscribeTokenRefresh((newAccessToken: any) => {
-                        originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+                    subscribeTokenRefresh((newAccessToken: string) => {
+                        (originalRequest.headers as Record<string, string>)['Authorization'] = `Bearer ${newAccessToken}`;
                         resolve(instance(originalRequest));
                     });
                 });
@@ -86,7 +92,7 @@ instance.interceptors.response.use(
                 onRefreshed(newAccessToken);
                 isRefreshing = false;
 
-                originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
+                (originalRequest.headers as Record<string, string>)['Authorization'] = `Bearer ${newAccessToken}`;
                 return instance(originalRequest);
             } catch (refreshError) {
                 isRefreshing = false;

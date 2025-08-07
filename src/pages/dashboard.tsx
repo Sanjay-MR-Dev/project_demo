@@ -1,5 +1,5 @@
 import React from 'react';
-import CustomTable from 'components/MaterialReactTable/materialReactTable';
+import {CustomTable} from 'components/MaterialReactTable/materialReactTable';
 import { MRT_ColumnDef } from 'material-react-table';
 
 interface user{
@@ -19,7 +19,7 @@ const columns : MRT_ColumnDef<user>[] = [
 
 const Dashboard: React.FC = () => {  
     return(
-        <CustomTable columns={columns} data={data}/>
+        <CustomTable<user> columns={columns} data={data}/>
     )};
 
 export default Dashboard;

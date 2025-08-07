@@ -16,7 +16,7 @@ const HorizontalMenu: React.FC = () => {
     const [subMenuOpen, setSubMenuOpen] = React.useState(false);
     const [subAnchorEl, setSubAnchorEl] = React.useState<null | HTMLElement>(null);
     const [activeSubItems, setActiveSubItems] = React.useState<{ label: string; path: string }[]>([]);
-    const closeTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
+    const closeTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
 
     const handleSubMenuEnter = (event: React.MouseEvent<HTMLElement>, itemLabel: string) => {
         if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
@@ -67,8 +67,8 @@ const HorizontalMenu: React.FC = () => {
                         }}
                     >
                         <HoverStyle
-
                             ref={hasSubmenu ? setSubAnchorEl : undefined}
+                            active={isActive}
                         >
                             <Typography
                                 variant="caption"

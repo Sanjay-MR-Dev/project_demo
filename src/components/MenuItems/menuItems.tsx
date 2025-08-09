@@ -16,6 +16,7 @@ interface itemsProps {
 
  export const menuItems: itemsProps[] = [
         { label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
+        { label: 'Job Work Order', path: '/job-work-order', icon: <DashboardIcon /> },
         { label: 'Master', path: '/master', icon: <ViewListIcon /> },
         { label: 'Inventory Master', path: '/inventory_master', icon: <WarehouseIcon /> },
         { label: 'Inventory', path: '/inventory', icon: <DescriptionIcon /> },

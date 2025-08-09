@@ -17,11 +17,12 @@ const CustomDatePicker: React.FC<Props> = ({
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
             <Box>
-                <Typography variant="inherit">{label}</Typography>
+                <Typography variant="inherit" fontFamily='"Outfit", sans-serif'>{label}</Typography>
                 <DatePicker
                     value={value}
                     onChange={onChange}
                     format="DD-MM-YYYY"
+                    sx={{ fontFamily: '"Outfit", sans-serif' }}
                     slotProps={{
                         textField: {
                             size: 'small',

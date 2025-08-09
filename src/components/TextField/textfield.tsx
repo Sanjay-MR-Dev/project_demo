@@ -35,7 +35,7 @@ const CustomTextFields: React.FC<CustomTextFieldProps> = ({
     return (
         <Box>
             {label_name && (
-                <Typography variant='inherit'>{label_name}</Typography>
+                <Typography variant='inherit' fontFamily='"Outfit", sans-serif'>{label_name}</Typography>
             )}
             <Component
                 name={name}

@@ -65,7 +65,7 @@ const AppBars: React.FC<Props> = ({ onMenuClick }) => {
                     {!isMobile && <HorizontalMenu />}
 
                     <BoxStyle onClick={handleMenuClick}>
-                        <TypographyStyle variant="subtitle1">
+                        <TypographyStyle variant="subtitle1" fontFamily='"Outfit", sans-serif' >
                             Trio-s Software Consultancy Pvt Ltd
                         </TypographyStyle>
                         <IconButton size="large" edge="end" >

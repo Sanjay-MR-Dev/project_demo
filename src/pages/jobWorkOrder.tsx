@@ -204,13 +204,13 @@ const UniformMaster: React.FC = () => {
                     display: 'flex',
                     alignItems: 'center',
                     marginLeft: '36px',
-                    marginTop: { xs: '8px', md: '24px', lg: '20px' },
+                    marginTop: { xs: '8px', md: '30px', lg: '30px' },
                     padding: { xs: '0px' }
                 }}>
                     <IconButton sx={{
                         mr: 0,
                         p: 0,
-                        color: colour.blue
+                        color: colour.primary
                     }}>
                         <MapsUgcIcon fontSize="large" />
                     </IconButton>
@@ -249,6 +249,7 @@ const UniformMaster: React.FC = () => {
                 }}>
                     <Typography
                         variant="body1"
+                        fontFamily='"Outfit", sans-serif'
                         sx={{
                             minWidth: '80px',
                             fontWeight: 500,
@@ -283,7 +284,7 @@ const UniformMaster: React.FC = () => {
                     <Box sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%" }}>
                         <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
                             <AssignmentIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
-                            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                            <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                 Size Details
                             </Typography>
                         </Box>
@@ -305,7 +306,7 @@ const UniformMaster: React.FC = () => {
                                                 textAlign: "center",
                                                 fontWeight: "bold",
                                                 fontSize: "16px",
-                                                width: '80px'
+                                                width: '10px'
                                             }}
                                         >
                                             S.No.
@@ -316,7 +317,7 @@ const UniformMaster: React.FC = () => {
                                                 textAlign: "center",
                                                 fontWeight: "bold",
                                                 fontSize: "16px",
-                                                width : '100px'
+                                                width: '80px'
 
                                             }}
                                         >
@@ -328,7 +329,7 @@ const UniformMaster: React.FC = () => {
                                                 textAlign: "center",
                                                 fontWeight: "bold",
                                                 fontSize: "16px",
-                                                width: "50%"
+                                                width: "30%"
                                             }}
                                         >
                                             Qty
@@ -380,11 +381,11 @@ const UniformMaster: React.FC = () => {
                                                     onChange={(e) => handleQtyChange(row.sno, e.target.value)}
                                                     inputProps={{
                                                         min: 0,
-                                                        style: { textAlign: "center", padding: "5px" },
+                                                        style: { textAlign: "center", padding: "10px" },
                                                     }}
                                                     sx={{
-                                                        maxWidth: "80px",
-                                                        "& input": { fontSize: "14px" },
+                                                        maxWidth: "150px",
+                                                        "& input": { fontSize: "16px", fontFamily: '"Outfit", sans-serif' },
                                                     }}
                                                 />
                                             </TableCell>
@@ -452,7 +453,7 @@ const UniformMaster: React.FC = () => {
                     <Box sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", width: '100%' }}>
                         <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
                             <ListAltIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
-                            <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                            <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                 Fabric Details
                             </Typography>
                         </Box>
@@ -611,7 +612,7 @@ const UniformMaster: React.FC = () => {
                         >
                             <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
                                 <AssignmentIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
-                                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                                <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                     Stitching Rate Details
                                 </Typography>
                             </Box>
@@ -691,7 +692,7 @@ const UniformMaster: React.FC = () => {
                                                 sx={{
                                                     border: "1px solid #e0e0e0",
                                                     fontWeight: 700,
-                                                    textAlign: "center",
+                                                    textAlign: "left",
                                                     fontSize: "14px",
                                                 }}
                                             >
@@ -728,7 +729,7 @@ const UniformMaster: React.FC = () => {
                         >
                             <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
                                 <ListAltIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
-                                <Typography variant="h6" sx={{ fontWeight: "bold" }}>
+                                <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                     Stitching Fabric Details
                                 </Typography>
                             </Box>
@@ -808,7 +809,7 @@ const UniformMaster: React.FC = () => {
                                                 sx={{
                                                     border: "1px solid #e0e0e0",
                                                     fontWeight: 700,
-                                                    textAlign: "center",
+                                                    textAlign: "Left",
                                                     fontSize: "14px",
                                                 }}
                                             >

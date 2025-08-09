@@ -32,7 +32,7 @@ const CustomDropDown: React.FC<DropDowProps> = ({
 
     return (
         <Box>
-            <Typography variant='inherit'>{label_name}</Typography>
+            <Typography variant='inherit' fontFamily= '"Outfit", sans-serif'>{label_name}</Typography>
             <Component fullWidth={fullWidth} size={size} error={error}>
                 <Select
                     name={name}
@@ -42,10 +42,11 @@ const CustomDropDown: React.FC<DropDowProps> = ({
                     onChange={onChange}
                     onBlur={onBlur}
                     error={error}
+                    sx={{ fontFamily: '"Outfit", sans-serif' }}
                 >
                     <MenuItem value=""><b>None</b></MenuItem>
                     {options.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
+                        <MenuItem key={option.value} value={option.value} sx={{ fontFamily: '"Outfit", sans-serif' }}>
                             {option.label}</MenuItem>
                     ))}
                 </Select>

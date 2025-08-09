@@ -2,7 +2,7 @@ import React from 'react';
 import {
   FormGroup, FormControlLabel, Checkbox, Stack
 } from '@mui/material';
-import type { ChangeEvent,ElementType } from 'react';
+import type { ChangeEvent, ElementType } from 'react';
 import { styled } from '@mui/styles';
 
 interface CheckBoxOption {
@@ -20,16 +20,18 @@ interface CheckBoxProps {
 }
 
 const defaultStyles = styled(Checkbox)(() => ({
+
   marginBottom: '16px',
   '& .MuiSvgIcon-root': {
     fontSize: 28,
   },
+
 }));
 
 const CustomCheckBox: React.FC<CheckBoxProps> = ({
   options, onChange, direction, spacing, Component = defaultStyles }
 ) => {
- 
+
   return (
     <FormGroup>
       <Stack spacing={spacing} direction={direction}>
@@ -44,6 +46,11 @@ const CustomCheckBox: React.FC<CheckBoxProps> = ({
               />
             }
             label={option.label}
+            sx={{
+              '& .MuiFormControlLabel-label': {
+                fontFamily: '"Outfit", sans-serif',
+              },
+            }}
           />
         ))}
       </Stack>

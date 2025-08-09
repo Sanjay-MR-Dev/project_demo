@@ -11,6 +11,7 @@ import Purchase from 'pages/purchase';
 import Login from 'pages/login';
 import { LoadingUI } from 'components/Loader/loadingui';
 import ItemGroup from 'pages/itemgroup';
+import UniformMaster from 'pages/jobWorkOrder';
 
 const App: React.FC = () => {
 
@@ -22,6 +23,7 @@ const App: React.FC = () => {
         <Route path="/login" element={<Login />} />
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/job-work-order" element={<UniformMaster />} />
           <Route path="/inventory/rm-group-master" element={<MyFile />} />
           <Route path="/inventory/rm-subgroup" element={<ItemGroup />} />
           <Route path="/inventory/inventory-list" element={<Purchase />} />

@@ -27,19 +27,29 @@ interface CustomRadioGroupProps {
     Component?: ElementType;
 }
 
-const defaultStyles = styled(RadioGroup)(()=>({
-    marginBottom : '16px'
+const defaultStyles = styled(RadioGroup)(() => ({
+    marginBottom: '16px'
 }));
 
 const CustomRadioGroup: React.FC<CustomRadioGroupProps> = ({
-    name, value, onChange, label, options, error, helperText, spacing, direction,Component = defaultStyles,
-}) => { 
+    name, value, onChange, label, options, error, helperText, spacing, direction, Component = defaultStyles,
+}) => {
 
     return (
         <Stack spacing={spacing} direction={direction}>
             <FormControl component="fieldset" error={error} fullWidth>
                 {label && <FormLabel>{label}</FormLabel>}
-                <Component name={name} value={value} onChange={onChange}>
+                <Component
+                    name={name}
+                    value={value}
+                    onChange={onChange}
+                    sx={{
+                        fontFamily: '"Outfit", sans-serif',
+                        '& .MuiFormControlLabel-label': {
+                            fontFamily: '"Outfit", sans-serif',
+                        },
+                    }}
+                >
                     {options.map((option) => (
                         <FormControlLabel
                             key={option.value}

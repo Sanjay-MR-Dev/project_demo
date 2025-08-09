@@ -6,7 +6,7 @@ import { Box, Typography, Stack, TextField } from '@mui/material';
 export const VoucherLabelText = styled(Typography)(({ theme }) => ({
     fontSize: '20px',
     fontWeight: 'bold',
-    fontFamily: 'sans-serif',
+    fontFamily: "'Outfit', sans-serif",
     [theme.breakpoints.down('sm')]: {
         fontSize: '20px',
     },
@@ -106,6 +106,7 @@ export const RemarksInputField = styled(TextField)(() => ({
     '& input': {
         padding: '8px 8px',
     },
+
 }));
 
 export const ActionButtonContainer = styled(Box)(({ theme }) => ({

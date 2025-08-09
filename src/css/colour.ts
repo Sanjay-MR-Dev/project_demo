@@ -12,16 +12,23 @@ let themes = createTheme({
     },
   },
   typography: {
+    h6: {
+      fontSize: '1.5rem',
+      fontFamily: '"Outfit", sans-serif',
+      '@media (max-width:600px)': {
+        fontSize: '1.2rem',
+      },
+    },
     h5: {
       fontSize: '1.5rem',
-      fontStyle: '"Fredoka", sans-serif',
+      fontFamily: '"Outfit", sans-serif',
       '@media (max-width:600px)': {
         fontSize: '1.2rem',
       },
     },
     h4: {
-      fontSize: '1.7rem',
-      fontStyle: '"Fredoka", sans-serif',
+      fontSize: '1.4rem',
+      fontFamily: '"Outfit", sans-serif',
       '@media (max-width:600px)': {
         fontSize: '1.2rem',
       },
@@ -34,6 +41,7 @@ let themes = createTheme({
     },
     button: {
       fontSize: '0.875rem',
+      fontFamily: '"Outfit", sans-serif',
       '@media (max-width:600px)': {
         fontSize: '0.75rem',
       },
@@ -78,7 +86,22 @@ let themes = createTheme({
         },
       },
     },
+    MuiTableCell: {
+      styleOverrides: {
+        head: {
+          fontWeight: 700,
+          fontSize: "16px",
+          fontFamily: "'Outfit', sans-serif",
+        },
+        body: {
+          fontWeight: 500,
+          fontSize: "14px",
+          fontFamily: "'Outfit', sans-serif",
+        },
+      },
+    },
   },
+
 });
 
 themes = responsiveFontSizes(themes);

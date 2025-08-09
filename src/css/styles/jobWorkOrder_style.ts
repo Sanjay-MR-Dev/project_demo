@@ -5,16 +5,16 @@ import { Box, Typography, Stack, TextField,Button } from '@mui/material';
 
 
 export const uniformButton = styled(Box)(() => ({
-
+    fontStyle: '"Outfit", sans-serif',
     textDecoration : 'underline',
-    color : colour.blue,
+    color : colour.primary,
     fontWeight : 'bolder',
-    marginTop : '3%',
     marginLeft : '10px',
     cursor : 'pointer'
 }));
 
 export const CloseButton = styled(Button)(() => ({
+    fontStyle: '"Outfit", sans-serif',
     backgroundColor: `${colour.red} !important`,
     '&:hover': {
         backgroundColor: `${colour.hoverRed} !important`

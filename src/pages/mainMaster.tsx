@@ -70,7 +70,7 @@ const HorizontalMenu: React.FC = () => {
                         onClick={() => {
                             if (!hasSubmenu) navigate(item.path);
                         }}
-                        sx={{ backgroundColor: 'transparent', position: 'relative' }}
+                        sx={{ backgroundColor: 'transparent', position: 'relative'}}
                     >
                         <Box
                             sx={{
@@ -97,7 +97,7 @@ const HorizontalMenu: React.FC = () => {
                                 sx={{
                                     mt: 0.5,
                                     fontWeight: isActive ? 600 : 400,
-                                    fontFamily: '"Fredoka", sans-serif',
+                                    fontFamily: '"Outfit", sans-serif',
                                     color: 'black',
                                     fontSize: '0.95rem',
                                 }}

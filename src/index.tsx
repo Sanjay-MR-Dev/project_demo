@@ -8,6 +8,8 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { LoadingProvider } from 'components/Loader/loadingContext';
 import '@fontsource/fredoka';
 import '@fontsource/fredoka/600.css';
+import "@fontsource/outfit";
+import "@fontsource/outfit/500.css"; 
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

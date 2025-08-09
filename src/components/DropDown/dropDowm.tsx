@@ -32,7 +32,7 @@ const CustomDropDown: React.FC<DropDowProps> = ({
 
     return (
         <Box>
-            <Typography variant='inherit' fontFamily= '"Outfit", sans-serif'>{label_name}</Typography>
+            <Typography variant='inherit' fontFamily= '"Outfit", sans-serif' sx={{marginBottom : '4px'}}>{label_name}</Typography>
             <Component fullWidth={fullWidth} size={size} error={error}>
                 <Select
                     name={name}

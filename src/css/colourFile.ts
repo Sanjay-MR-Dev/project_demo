@@ -10,7 +10,8 @@ const colour = {
     black : '#000000ff',
     whiteSmoke : '#ececec',
     charCole : '#333',
-    blue : '#113454ff'
+    blue : '#113454ff',
+    lightGreens : '#86d261ff',
 }
 
 export default colour;

@@ -22,11 +22,21 @@ const CustomDatePicker: React.FC<Props> = ({
                     value={value}
                     onChange={onChange}
                     format="DD-MM-YYYY"
-                    sx={{ fontFamily: '"Outfit", sans-serif' }}
                     slotProps={{
                         textField: {
                             size: 'small',
-                            fullWidth: true
+                            fullWidth: true,
+                            sx: {
+                                '& .MuiInputBase-input': {
+                                    fontFamily: '"Outfit", sans-serif', 
+                                },
+                                '& .MuiInputLabel-root': {
+                                    fontFamily: '"Outfit", sans-serif', 
+                                },
+                                '& .MuiFormHelperText-root': {
+                                    fontFamily: '"Outfit", sans-serif',
+                                },
+                            },
                         }
                     }}
                     {...props}

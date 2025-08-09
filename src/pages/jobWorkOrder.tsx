@@ -12,7 +12,7 @@ import MapsUgcIcon from '@mui/icons-material/MapsUgc';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import CustomButton from "components/Button/button";
-import { ContinueButton, SaveButton, uniformButton, CloseButton, RemarksInputField } from "css/styles/jobWorkOrder_style";
+import { ContinueButton, SaveButton, uniformButton, CloseButton, RemarksInputField, HeaderBox, DropDownBox, ButtonBox } from "css/styles/jobWorkOrder_style";
 import instance from "../axios/axiosinstance";
 import CustomTextFields from "components/TextField/textfield";
 import CustomDatePicker from "components/Date/date";
@@ -141,19 +141,13 @@ const UniformMaster: React.FC = () => {
 
     return (
         <Box>
-            <Box sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                flexWrap: "wrap",
-                marginBottom: 5
-            }}>
+            <HeaderBox>
                 <Typography variant="h5" fontWeight='bold'>Job Work Order</Typography>
                 <Box sx={{ textAlign: 'right' }}>
-                    <Typography variant="h6" fontWeight='bold'>Job Order No.: {jobOrder.number}</Typography>
-                    <Typography variant="h6">{jobOrder.date}</Typography>
+                    <Typography variant="h4" fontWeight='bold'>Job Order No.: 1 </Typography>
+                    <Typography variant="h4" fontWeight='bold'>09/08/2025</Typography>
                 </Box>
-            </Box>
+            </HeaderBox>
             <Box
                 sx={{
                     marginTop: '8px',
@@ -167,7 +161,7 @@ const UniformMaster: React.FC = () => {
                     boxShadow: 'unset'
                 }}
             >
-                <Box sx={{ marginLeft: '12px', mb: { xs: 2, md: 0 }, width: { xs: "100%", md: "35%", lg: "20%" } }} >
+                <DropDownBox>
                     <CustomDropDown
                         name="school_name"
                         id="school_name"
@@ -181,10 +175,9 @@ const UniformMaster: React.FC = () => {
                             { label: "Sakthi", value: "sakthi" }
                         ]}
                     />
+                </DropDownBox>
 
-                </Box>
-
-                <Box sx={{ marginLeft: '12px', mb: { xs: 2, md: 0 }, width: { xs: "100%", md: "35%", lg: "20%" } }}>
+                <DropDownBox>
                     <CustomDropDown
                         name="tailor_name"
                         id="tailor_name"
@@ -198,15 +191,9 @@ const UniformMaster: React.FC = () => {
                             { label: "Logesh", value: "logesh" }
                         ]}
                     />
-                </Box>
+                </DropDownBox>
 
-                <Box sx={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    marginLeft: '36px',
-                    marginTop: { xs: '8px', md: '30px', lg: '30px' },
-                    padding: { xs: '0px' }
-                }}>
+                <ButtonBox>
                     <IconButton sx={{
                         mr: 0,
                         p: 0,
@@ -220,7 +207,7 @@ const UniformMaster: React.FC = () => {
                         onClick={() => setOpen(true)}
                         Component={uniformButton}
                     />
-                </Box>
+                </ButtonBox>
             </Box>
 
             <Box
@@ -253,7 +240,8 @@ const UniformMaster: React.FC = () => {
                         sx={{
                             minWidth: '80px',
                             fontWeight: 500,
-                            mr: { sm: 2, xs: 0 }
+                            mr: { sm: 2, xs: 0 },
+                            mb: { xs: '6px' }
                         }}
                     >
                         Uniform<span style={{ color: 'red' }}>*</span>
@@ -294,7 +282,7 @@ const UniformMaster: React.FC = () => {
                                 border: "1px solid #d1d1d1",
                                 borderRadius: "8px",
                                 overflow: "hidden",
-                                marginLeft: 0,
+
                             }}
                         >
                             <Table>
@@ -313,7 +301,7 @@ const UniformMaster: React.FC = () => {
                                         </TableCell>
                                         <TableCell
                                             sx={{
-                                                border: "2px solid #e0e0e0",
+                                                border: "1px solid #e0e0e0",
                                                 textAlign: "center",
                                                 fontWeight: "bold",
                                                 fontSize: "16px",
@@ -478,7 +466,7 @@ const UniformMaster: React.FC = () => {
                                                 fontSize: "16px",
                                                 width: '80px'
                                             }}
-                                        >S.No</TableCell>
+                                        >S.No.</TableCell>
                                         <TableCell
                                             sx={{
                                                 border: "1px solid #e0e0e0",
@@ -631,7 +619,7 @@ const UniformMaster: React.FC = () => {
                                         <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
                                             <TableCell sx={{
                                                 border: "1px solid #e0e0e0",
-                                                textAlign: "left",
+                                                textAlign: "center",
                                                 fontWeight: "bold",
                                                 fontSize: "16px",
                                                 width: '80px'
@@ -706,7 +694,18 @@ const UniformMaster: React.FC = () => {
                                                     paddingRight: "16px",
                                                 }}
                                             >
-                                                <strong>{stitchingRateDetails.reduce((sum, row) => sum + row.rate, 0)}</strong>
+                                                <Box
+                                                    sx={{
+                                                        backgroundColor: colour.lightGreens,
+                                                        color: "black",
+                                                        padding: "8px 16px",
+                                                        borderRadius: "8px",
+                                                        border: '2px solid',
+                                                        borderColor: colour.lightGreen,
+                                                        display: "inline-block"
+                                                    }}
+                                                ><strong>{stitchingRateDetails.reduce((sum, row) => sum + row.rate, 0)}</strong></Box>
+
                                             </TableCell>
                                         </TableRow>
                                     </TableBody>
@@ -823,7 +822,18 @@ const UniformMaster: React.FC = () => {
                                                     paddingRight: "16px",
                                                 }}
                                             >
-                                                <strong>{stitchingFabricDetails.reduce((sum, row) => sum + row.amount, 0)}</strong>
+                                                <Box
+                                                    sx={{
+                                                        backgroundColor: colour.lightGreens,
+                                                        color: "black",
+                                                        padding: "8px 16px",
+                                                        borderRadius: "8px",
+                                                        border: '2px solid',
+                                                        borderColor: colour.lightGreen,
+                                                        display: "inline-block"
+                                                    }}
+                                                ><strong>{stitchingFabricDetails.reduce((sum, row) => sum + row.amount, 0)}</strong></Box>
+
                                             </TableCell>
                                         </TableRow>
                                     </TableBody>
@@ -836,10 +846,10 @@ const UniformMaster: React.FC = () => {
                 <Box
                     sx={{
                         display: "flex",
-                        flexDirection: { xs: "column", lg: "row", md: "column" },
                         gap: 3,
-                        width: { lg: "80%", xs: "25%", md: "25%" },
                         mt: 4,
+                        flexDirection: { xs: "column", lg: "row", md: "column" },
+                        width: { lg: "80%", xs: "25%", md: "80%" },
                         alignItems: "flex-start",
                     }}
                 >
@@ -855,7 +865,7 @@ const UniformMaster: React.FC = () => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             multiline
-                            rows={4}
+                            rows={5}
                             Component={RemarksInputField}
 
                         />

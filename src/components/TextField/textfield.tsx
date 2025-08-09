@@ -27,6 +27,13 @@ const DefaultTextFieldStyles = styled(TextField)(() => ({
     '& .MuiInputBase-root': {
         backgroundColor: colour.ghostWhite,
     },
+    '& .MuiFormHelperText-root': {
+        fontFamily: '"Outfit", sans-serif',
+    },
+    '& .MuiInputBase-input': {
+        fontFamily: '"Outfit", sans-serif',
+    },
+
 }));
 
 const CustomTextFields: React.FC<CustomTextFieldProps> = ({
@@ -35,7 +42,7 @@ const CustomTextFields: React.FC<CustomTextFieldProps> = ({
     return (
         <Box>
             {label_name && (
-                <Typography variant='inherit' fontFamily='"Outfit", sans-serif'>{label_name}</Typography>
+                <Typography variant='inherit' fontFamily='"Outfit", sans-serif' sx={{marginBottom : '4px'}}>{label_name}</Typography>
             )}
             <Component
                 name={name}

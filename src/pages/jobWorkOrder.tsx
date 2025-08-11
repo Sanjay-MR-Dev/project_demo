@@ -17,11 +17,11 @@ import {
     ButtonBox, EndButtonBox, StitchingRightTableBox, StitchingLeftTableBox, InsideTableBox,
     CenterBodyTableCell, LeftBodyTableCell, RightBodyTableCell, SnoHeaderTableCell,
     SizeHeaderTableCell, RateHeaderTableCell, AmountHeaderTableCell, QtyHeaderTableCell,
-    TotalAmountHeaderTableCell, TotalMeterHeaderTableCell,FabricHeaderTableCell, SNoHeaderTableCell, AmountBottomTableCell,
+    TotalAmountHeaderTableCell, TotalMeterHeaderTableCell, FabricHeaderTableCell, SNoHeaderTableCell, AmountBottomTableCell,
     MeterBottomTableCell, TotalBottomTableCell, CommonThirdTableCell, CommonSecondTableCell, CommonFirstTableCell,
-    FinalBodyTableCell, TableRowBackground, TableCellBorder,ValueBox, FirstRowTableBox, UniformBox, FirstTableInsideBox,
-    UniformTypography, DropDownBoxs, BothTableBox, FirstTableOutsideBox,TableBodyStyle, QtyBottomTableBox, AmountBottomTableBox, 
-    TotalBottomTableBox,SecondTableInsideBox, SecondTableOutsideBox,SecondRowTableBox,RemarksDateBox,RemarksBox,DateBox,TableContainerStyle,
+    FinalBodyTableCell, TableRowBackground, TableCellBorder, ValueBox, FirstRowTableBox, UniformBox, FirstTableInsideBox,
+    UniformTypography, DropDownBoxs, BothTableBox, FirstTableOutsideBox, TableBodyStyle, QtyBottomTableBox, AmountBottomTableBox,
+    TotalBottomTableBox, SecondTableInsideBox, SecondTableOutsideBox, SecondRowTableBox, RemarksDateBox, RemarksBox, DateBox, TableContainerStyle,
 } from "css/styles/jobWorkOrder_style";
 import instance from "../axios/axiosinstance";
 import CustomTextFields from "components/TextField/textfield";
@@ -194,7 +194,7 @@ const UniformMaster: React.FC = () => {
                 <ButtonBox>
                     <IconButton sx={{
                         color: colour.primary,
-                        mr : 0
+                        //mr : 0
                     }}>
                         <MapsUgcIcon fontSize="large" />
                     </IconButton>
@@ -274,11 +274,17 @@ const UniformMaster: React.FC = () => {
                                                     onChange={(e) => handleQtyChange(row.sno, e.target.value)}
                                                     inputProps={{
                                                         min: 0,
-                                                        style: { textAlign: "center", padding: "10px" },
+                                                        style: { textAlign: "center", padding: "2px", },
                                                     }}
                                                     sx={{
-                                                        maxWidth: "150px",
-                                                        "& input": { fontSize: "16px", fontFamily: '"Outfit", sans-serif' },
+                                                        borderRadius: '8px',
+                                                        "& .MuiInputBase-root": {
+                                                            height: "35px",   
+                                                        },
+                                                        "& input": {
+                                                            fontSize: "16px",
+                                                            fontFamily: '"Outfit", sans-serif',
+                                                        },
                                                     }}
                                                 />
                                             </CenterBodyTableCell>
@@ -487,7 +493,7 @@ const UniformMaster: React.FC = () => {
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
                             multiline
-                            rows={5}
+                            rows={3}
                             size="small"
                             Component={RemarksInputField}
 

@@ -27,7 +27,21 @@ let themes = createTheme({
       },
     },
     h4: {
+      fontSize: '1.3rem',
+      fontFamily: '"Outfit", sans-serif',
+      '@media (max-width:600px)': {
+        fontSize: '1.3rem',
+      },
+    },
+    h3: {
       fontSize: '1.4rem',
+      fontFamily: '"Outfit", sans-serif',
+      '@media (max-width:600px)': {
+        fontSize: '1.2rem',
+      },
+    },
+    h2: {
+      fontSize: '1rem',
       fontFamily: '"Outfit", sans-serif',
       '@media (max-width:600px)': {
         fontSize: '1.2rem',

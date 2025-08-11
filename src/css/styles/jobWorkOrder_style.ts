@@ -8,8 +8,7 @@ export const HeaderBox = styled(Box)(() => ({
     justifyContent: "space-between",
     alignItems: "center",
     flexWrap: "wrap",
-    marginBottom: 3,
-    marginTop: 2
+
 }));
 
 export const ValueBox = styled(Box)(({ theme }) => ({
@@ -19,7 +18,7 @@ export const ValueBox = styled(Box)(({ theme }) => ({
     alignItems: 'stretch',
     borderRadius: '8px',
     backgroundColor: colour.white,
-    padding: theme.spacing(4),
+    padding: theme.spacing(2),
     position: 'static',
     boxShadow: 'unset',
     [theme.breakpoints.up('md')]: {
@@ -29,22 +28,42 @@ export const ValueBox = styled(Box)(({ theme }) => ({
 }));
 
 export const DropDownBox = styled(Box)(({ theme }) => ({
-    marginLeft: '12px',
-    marginBottom: theme.spacing(2),
+    marginLeft: '8px',
+    marginBottom: theme.spacing(1),
     width: '100%',
     [theme.breakpoints.up('md')]: {
-        marginBottom: 0,
-        width: '35%',
+        width: '40%',
     },
     [theme.breakpoints.up('lg')]: {
         width: '20%',
     },
 }));
 
+export const ButtonBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    alignItems: 'center',
+    marginLeft: '8px',
+    marginTop: '6px',
+    [theme.breakpoints.up('md')]: {
+        marginTop: '30px',
+    },
+    [theme.breakpoints.up('lg')]: {
+        marginTop: '22px',
+    },
+
+}));
+
+export const uniformButton = styled(Box)(() => ({
+    fontStyle: '"Outfit", sans-serif',
+    textDecoration: 'underline',
+    color: colour.primary,
+    fontWeight: 'bolder',
+    cursor: 'pointer'
+}));
+
+
 export const FirstRowTableBox = styled(Box)(({ theme }) => ({
-
-
-    marginTop: '24px',
+    marginTop: '12px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -55,30 +74,12 @@ export const FirstRowTableBox = styled(Box)(({ theme }) => ({
     gap: theme.spacing(3),
     borderTop: '4px solid blue',
 }));
-
-export const SecondRowTableBox = styled(Box)(({ theme }) => ({
-
-
-    marginTop: '24px',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    borderRadius: '8px',
-    backgroundColor: colour.white,
-    padding: theme.spacing(4),
-    boxShadow: 'unset',
-    gap: theme.spacing(3),
-    borderTop: '4px solid blue',
-    width: "100%",
-}));
-
 
 export const UniformBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
-    marginLeft: '12px',
-    marginBottom: theme.spacing(2),
+    marginLeft: '8px',
     width: '100%',
 
     [theme.breakpoints.up('sm')]: {
@@ -92,149 +93,63 @@ export const UniformBox = styled(Box)(({ theme }) => ({
     },
 
     [theme.breakpoints.up('lg')]: {
-        marginBottom: theme.spacing(3),
         width: '25%',
     },
 }));
 
-export const ButtonBox = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    alignItems: 'center',
-    marginLeft: '8px',
-    marginTop: '8px',
-    [theme.breakpoints.up('md')]: {
-        marginTop: '30px',
-    },
+export const UniformTypography = styled(Typography)(({ theme }) => ({
+    minWidth: '80px',
+    fontWeight: 500,
+    fontFamily: '"Outfit", sans-serif',
+    marginBottom: '6px',
+
+    [theme.breakpoints.up('sm')]: {
+        marginRight: theme.spacing(2),
+    }
+}));
+
+export const DropDownBoxs = styled(Box)(({ theme }) => ({
+    flexGrow: 1, width: '100%',
     [theme.breakpoints.up('lg')]: {
-        marginTop: '30px',
+        width: '50%',
     },
-
+    [theme.breakpoints.up('md')]: {
+        width: '80%',
+    }
 }));
 
-export const uniformButton = styled(Box)(() => ({
-    fontStyle: '"Outfit", sans-serif',
-    textDecoration: 'underline',
-    color: colour.primary,
-    fontWeight: 'bolder',
-    cursor: 'pointer'
-}));
-
-export const ItemBackgroundBox = styled(Box)(() => ({
-    marginTop: '24px',
+export const BothTableBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-start',
-    borderRadius: '8px',
-    backgroundColor: colour.white,
-    padding: 4,
-    boxShadow: 'unset',
-    gap: 3,
-    borderTop: "4px solid blue",
-}));
+    gap: theme.spacing(3),
+    width: '100%',
 
-
-
-
-export const CloseButton = styled(Button)(() => ({
-    fontStyle: '"Outfit", sans-serif',
-    backgroundColor: `${colour.red} !important`,
-    '&:hover': {
-        backgroundColor: `${colour.hoverRed} !important`
-    },
-}));
-
-export const SaveButton = styled(Button)(() => ({
-    backgroundColor: `${colour.blue} !important`,
-    '&:hover': {
-        backgroundColor: `${colour.blue} !important`
-    },
-}));
-
-export const ContinueButton = styled(Button)(() => ({
-    backgroundColor: `${colour.lightGreen} !important`,
-    '&:hover': {
-        backgroundColor: `${colour.lightGreen} !important`
-    },
-}));
-
-export const RemarksInputField = styled(TextField)(() => ({
-    borderRadius: 4,
-    width: '400%',
-    '& .MuiInputBase-root': {
-        backgroundColor: colour.ghostWhite,
-    },
-    '& input': {
-        padding: '8px 8px',
+    [theme.breakpoints.up('lg')]: {
+        flexDirection: 'row',
     },
 }));
 
 
-export const RightHeaderTableCell = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`,
-    textAlign: "right",
-    fontWeight: "bold",
-    fontSize: "16px",
-    width: "20%"
-}));
-
-export const LeftHeaderTableCell = styled(TableCell)(() => ({
-
-}));
-
-export const CenterHeaderTableCell = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`,
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: "16px",
-    width: '10px'
-}));
-
-export const EndButtonBox = styled(TableCell)(() => ({
-    marginTop: 4,
-    display: 'flex',
-    justifyContent: 'flex-end',
-    marginBottom: 5
-}));
-
-export const StitchingRightTableBox = styled(TableCell)(() => ({
+export const FirstTableOutsideBox = styled(Box)(() => ({
     flex: 1,
     display: "flex",
     flexDirection: "column",
     alignItems: "flex-start",
-    marginTop: 4,
-    width: "100%",
+    width: "100%"
 }));
 
-export const StitchingLeftTableBox = styled(TableCell)(() => ({
-    flex: 1,
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    marginTop: 4,
-    width: "100%",
+export const FirstTableInsideBox = styled(Box)(() => ({
+    display: "flex", alignItems: "center",
 }));
 
-export const InsideTableBox = styled(TableCell)(() => ({
-    backgroundColor: colour.lightGreens,
-    color: "black",
-    padding: "8px 16px",
+export const TableContainerStyle = styled(TableContainer)<TableContainerProps>(() => ({
+    border: `1px solid ${colour.borderColour}`,
     borderRadius: "8px",
-    border: '2px solid',
-    borderColor: colour.lightGreen,
-    display: "inline-block"
+    overflow: "hidden",
 }));
 
-export const RightBodyTableCell = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`, textAlign: "right"
-
-}));
-
-export const CenterBodyTableCell = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`, textAlign: "center"
-}));
-
-export const LeftBodyTableCell = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`, textAlign: "left"
+export const TableRowBackground = styled(TableRow)(() => ({
+    backgroundColor: `${colour.TableRowColour}`
 }));
 
 export const SnoHeaderTableCell = styled(TableCell)(() => ({
@@ -242,7 +157,7 @@ export const SnoHeaderTableCell = styled(TableCell)(() => ({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
-    width: '50px'
+    width: '80px'
 }));
 
 export const SizeHeaderTableCell = styled(TableCell)(() => ({
@@ -250,7 +165,7 @@ export const SizeHeaderTableCell = styled(TableCell)(() => ({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
-    width: '50px'
+    width: '20%'
 }));
 
 export const QtyHeaderTableCell = styled(TableCell)(() => ({
@@ -258,7 +173,7 @@ export const QtyHeaderTableCell = styled(TableCell)(() => ({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
-    width: '40%'
+    width: '30%'
 }));
 
 export const RateHeaderTableCell = styled(TableCell)(() => ({
@@ -266,7 +181,7 @@ export const RateHeaderTableCell = styled(TableCell)(() => ({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
-    width: '20%'
+    width: '25%'
 }));
 
 export const AmountHeaderTableCell = styled(TableCell)(() => ({
@@ -274,7 +189,66 @@ export const AmountHeaderTableCell = styled(TableCell)(() => ({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
-    width: '20%'
+    width: '25%'
+}));
+
+export const TableBodyStyle = styled(TableBody)(() => ({
+    "& td": {
+        fontWeight: 500,
+        fontSize: "16px"
+    }
+}));
+
+export const RightBodyTableCell = styled(TableCell)(() => ({
+    border: `1px solid ${colour.borderColour}`,
+    textAlign: "right",
+    padding: "8px 8px",
+    
+
+}));
+
+export const CenterBodyTableCell = styled(TableCell)(() => ({
+    border: `1px solid ${colour.borderColour}`,
+    textAlign: "center",
+    padding: "8px 8px",
+
+}));
+
+export const LeftBodyTableCell = styled(TableCell)(() => ({
+    border: `1px solid ${colour.borderColour}`,
+    textAlign: "left",
+    padding: "8px 8px",
+    
+}));
+
+export const TotalBottomTableBox = styled(TableCell)(() => ({
+    border: `1px solid ${colour.borderColour}`,
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: "14px"
+}));
+export const QtyBottomTableBox = styled(TableCell)(() => ({
+    border: `1px solid ${colour.borderColour}`,
+    textAlign: "center",
+    fontWeight: "bold",
+}));
+export const AmountBottomTableBox = styled(TableCell)(() => ({
+    border: `1px solid ${colour.borderColour}`,
+    textAlign: "right",
+    fontWeight: "bold",
+    paddingRight: "16px",
+}));
+
+export const SecondTableOutsideBox = styled(Box)(() => ({
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    width: "100%"
+}));
+
+export const SecondTableInsideBox = styled(Box)(() => ({
+    display: "flex", alignItems: "center", marginBottom: 1
 }));
 
 export const SNoHeaderTableCell = styled(TableCell)(() => ({
@@ -290,7 +264,7 @@ export const FabricHeaderTableCell = styled(TableCell)(() => ({
     textAlign: "left",
     fontWeight: "bold",
     fontSize: "16px",
-    width: '50%'
+    width: '60%'
 }));
 
 export const TotalMeterHeaderTableCell = styled(TableCell)(() => ({
@@ -329,11 +303,35 @@ export const AmountBottomTableCell = styled(TableCell)(() => ({
     paddingRight: "16px",
 }));
 
+
+export const SecondRowTableBox = styled(Box)(({ theme }) => ({
+    marginTop: '12px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    borderRadius: '8px',
+    backgroundColor: colour.white,
+    padding: theme.spacing(4),
+    boxShadow: 'unset',
+    gap: theme.spacing(3),
+    borderTop: `4px solid ${colour.lightGreen}`,
+    width: "100%",
+}));
+
+export const StitchingLeftTableBox = styled(TableCell)(() => ({
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    width: "100%",
+}));
+
 export const CommonFirstTableCell = styled(TableCell)(() => ({
     border: `1px solid ${colour.borderColour}`,
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
+    padding: "8px 8px",
     width: '80px'
 }));
 
@@ -342,6 +340,7 @@ export const CommonSecondTableCell = styled(TableCell)(() => ({
     textAlign: "left",
     fontWeight: "bold",
     fontSize: "16px",
+    padding: "8px 8px",
     width: "80%"
 }));
 
@@ -350,102 +349,42 @@ export const CommonThirdTableCell = styled(TableCell)(() => ({
     textAlign: "right",
     fontWeight: "bold",
     fontSize: "16px",
+    padding: "8px 8px",
     width: "20%"
+}));
+
+export const StitchingRightTableBox = styled(TableCell)(() => ({
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    width: "100%",
 }));
 
 export const FinalBodyTableCell = styled(TableCell)(() => ({
     border: `1px solid ${colour.borderColour}`,
     textAlign: "right",
-    paddingRight: "16px",
-}));
-
-export const TableContainerStyle = styled(TableContainer)<TableContainerProps>(() => ({
-    border: `1px solid ${colour.borderColour}`,
-    borderRadius: "8px",
-    overflow: "hidden",
-}));
-
-export const TableRowBackground = styled(TableRow)(() => ({
-    backgroundColor : `${colour.TableRowColour}`
+    padding: "8px 8px",
 }));
 
 export const TableCellBorder = styled(TableCell)(() => ({
     border: `1px solid ${colour.borderColour}`
 }));
 
-export const TableBodyStyle = styled(TableBody)(() => ({
-    "& td": {
-        fontWeight: 500,
-        fontSize: "16px"
-    }
-}));
 
-
-export const UniformTypography = styled(Typography)(({ theme }) => ({
-    minWidth: '80px',
-    fontWeight: 500,
-    fontFamily: '"Outfit", sans-serif',
-    marginRight: 0,
-    marginBottom: '6px',
-
-    [theme.breakpoints.up('sm')]: {
-        marginRight: theme.spacing(2),
-    }
-}));
-
-export const DropDownBoxs = styled(Box)(() => ({
-    flexGrow: 1, width: '100%'
-}));
-
-export const BothTableBox = styled(Box)(({ theme }) => ({
-    display: 'flex',
-    flexDirection: 'column',
-    gap: theme.spacing(3),
-    width: '100%',
-
-    [theme.breakpoints.up('lg')]: {
-        flexDirection: 'row',
-    },
-}));
-
-export const FirstTableOutsideBox = styled(Box)(() => ({
-    flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%"
-}));
-
-export const FirstTableInsideBox = styled(Box)(() => ({
-    display: "flex", alignItems: "center", marginBottom: 1
-}));
-
-export const TotalBottomTableBox = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`,
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: "18px"
-}));
-export const QtyBottomTableBox = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`,
-    textAlign: "center",
-    fontWeight: "bold",
-}));
-export const AmountBottomTableBox = styled(TableCell)(() => ({
-    border: `1px solid ${colour.borderColour}`,
-    textAlign: "right",
-    fontWeight: "bold",
-    paddingRight: "16px",
-}));
-
-export const SecondTableOutsideBox = styled(Box)(() => ({
-    flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%"
-}));
-
-export const SecondTableInsideBox = styled(Box)(() => ({
-    display: "flex", alignItems: "center", marginBottom: 1
+export const InsideTableBox = styled(TableCell)(() => ({
+    backgroundColor: colour.lightGreens,
+    color: "black",
+    padding: "4px 8px",
+    borderRadius: "8px",
+    border: '2px solid',
+    borderColor: colour.lightGreen,
+    display: "inline-block"
 }));
 
 export const RemarksDateBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     gap: theme.spacing(3),
-    marginTop: theme.spacing(4),
     flexDirection: 'column',
     width: '25%',
     alignItems: 'flex-start',
@@ -475,6 +414,17 @@ export const RemarksBox = styled(Box)(({ theme }) => ({
     },
 }));
 
+export const RemarksInputField = styled(TextField)(() => ({
+    borderRadius: 4,
+    width: '400%',
+    '& .MuiInputBase-root': {
+        backgroundColor: colour.ghostWhite,
+    },
+    '& input': {
+        padding: '8px 8px',
+    },
+}));
+
 export const DateBox = styled(Box)(({ theme }) => ({
     flex: '100%',
     display: 'flex',
@@ -488,3 +438,34 @@ export const DateBox = styled(Box)(({ theme }) => ({
         flex: '25%',
     },
 }));
+
+export const EndButtonBox = styled(TableCell)(() => ({
+    marginTop: 4,
+    display: 'flex',
+    justifyContent: 'flex-end',
+    marginBottom: 5
+}));
+
+export const CloseButton = styled(Button)(() => ({
+    fontStyle: '"Outfit", sans-serif',
+    backgroundColor: `${colour.red} !important`,
+    '&:hover': {
+        backgroundColor: `${colour.hoverRed} !important`
+    },
+}));
+
+export const SaveButton = styled(Button)(() => ({
+    backgroundColor: `${colour.blue} !important`,
+    '&:hover': {
+        backgroundColor: `${colour.blue} !important`
+    },
+}));
+
+export const ContinueButton = styled(Button)(() => ({
+    backgroundColor: `${colour.lightGreen} !important`,
+    '&:hover': {
+        backgroundColor: `${colour.lightGreen} !important`
+    },
+}));
+
+

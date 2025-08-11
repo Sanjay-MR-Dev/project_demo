@@ -28,11 +28,11 @@ const DefaultStyles = styled(FormControl)(() => ({
 }));
 
 const CustomDropDown: React.FC<DropDowProps> = ({
-    name, id, value, label_name, label, options, onChange, onBlur, error, helperText, fullWidth, size,Component = DefaultStyles }) => {
+    name, id, value, label_name, label, options, onChange, onBlur, error, helperText, fullWidth, size, Component = DefaultStyles }) => {
 
     return (
         <Box>
-            <Typography variant='inherit' fontFamily= '"Outfit", sans-serif' sx={{marginBottom : '4px'}}>{label_name}</Typography>
+            <Typography variant='inherit' fontFamily='"Outfit", sans-serif' sx={{ marginBottom: '4px' }}>{label_name}</Typography>
             <Component fullWidth={fullWidth} size={size} error={error}>
                 <Select
                     name={name}
@@ -42,23 +42,26 @@ const CustomDropDown: React.FC<DropDowProps> = ({
                     onChange={onChange}
                     onBlur={onBlur}
                     error={error}
-                    sx={{ fontFamily: '"Outfit", sans-serif' }}
+                    sx={{
+                        fontFamily: '"Outfit", sans-serif',
+                        '& .MuiSelect-select': {
+                            padding: '10px 8px', }, }}
                 >
-                    <MenuItem value=""><b>None</b></MenuItem>
+                                <MenuItem value=""><b>None</b></MenuItem>
                     {options.map((option) => (
-                        <MenuItem key={option.value} value={option.value} sx={{ fontFamily: '"Outfit", sans-serif' }}>
-                            {option.label}</MenuItem>
-                    ))}
+                                    <MenuItem key={option.value} value={option.value} sx={{ fontFamily: '"Outfit", sans-serif' }}>
+                                        {option.label}</MenuItem>
+                                ))}
                 </Select>
-                {
-                    error && helperText && (
-                        <Typography variant='caption' color='error' sx={{ ml: 1 }}>
-                            {helperText}
-                        </Typography>
-                    )
-                }
-            </Component>
-        </Box>
+            {
+                error && helperText && (
+                    <Typography variant='caption' color='error' sx={{ ml: 1 }}>
+                        {helperText}
+                    </Typography>
+                )
+            }
+        </Component>
+        </Box >
 
 
     );

@@ -27,11 +27,14 @@ const CustomDatePicker: React.FC<Props> = ({
                             size: 'small',
                             fullWidth: true,
                             sx: {
+                                '& input': {
+                                    fontFamily: '"Outfit", sans-serif',
+                                },
                                 '& .MuiInputBase-input': {
-                                    fontFamily: '"Outfit", sans-serif', 
+                                    fontFamily: '"Outfit", sans-serif',
                                 },
                                 '& .MuiInputLabel-root': {
-                                    fontFamily: '"Outfit", sans-serif', 
+                                    fontFamily: '"Outfit", sans-serif',
                                 },
                                 '& .MuiFormHelperText-root': {
                                     fontFamily: '"Outfit", sans-serif',

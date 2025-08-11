@@ -12,7 +12,17 @@ import MapsUgcIcon from '@mui/icons-material/MapsUgc';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListAltIcon from '@mui/icons-material/ListAlt';
 import CustomButton from "components/Button/button";
-import { ContinueButton, SaveButton, uniformButton, CloseButton, RemarksInputField, HeaderBox, DropDownBox, ButtonBox } from "css/styles/jobWorkOrder_style";
+import {
+    ContinueButton, SaveButton, uniformButton, CloseButton, RemarksInputField, HeaderBox, DropDownBox,
+    ButtonBox, EndButtonBox, StitchingRightTableBox, StitchingLeftTableBox, InsideTableBox,
+    CenterBodyTableCell, LeftBodyTableCell, RightBodyTableCell, SnoHeaderTableCell,
+    SizeHeaderTableCell, RateHeaderTableCell, AmountHeaderTableCell, QtyHeaderTableCell,
+    TotalAmountHeaderTableCell, TotalMeterHeaderTableCell,FabricHeaderTableCell, SNoHeaderTableCell, AmountBottomTableCell,
+    MeterBottomTableCell, TotalBottomTableCell, CommonThirdTableCell, CommonSecondTableCell, CommonFirstTableCell,
+    FinalBodyTableCell, TableRowBackground, TableCellBorder,ValueBox, FirstRowTableBox, UniformBox, FirstTableInsideBox,
+    UniformTypography, DropDownBoxs, BothTableBox, FirstTableOutsideBox,TableBodyStyle, QtyBottomTableBox, AmountBottomTableBox, 
+    TotalBottomTableBox,SecondTableInsideBox, SecondTableOutsideBox,SecondRowTableBox,RemarksDateBox,RemarksBox,DateBox,TableContainerStyle,
+} from "css/styles/jobWorkOrder_style";
 import instance from "../axios/axiosinstance";
 import CustomTextFields from "components/TextField/textfield";
 import CustomDatePicker from "components/Date/date";
@@ -148,19 +158,7 @@ const UniformMaster: React.FC = () => {
                     <Typography variant="h4" fontWeight='bold'>09/08/2025</Typography>
                 </Box>
             </HeaderBox>
-            <Box
-                sx={{
-                    marginTop: '8px',
-                    display: 'flex',
-                    flexDirection: { xs: 'column', md: 'row' },
-                    alignItems: { xs: 'stretch', md: 'flex-start' },
-                    borderRadius: '8px',
-                    backgroundColor: colour.white,
-                    padding: 4,
-                    position: 'static',
-                    boxShadow: 'unset'
-                }}
-            >
+            <ValueBox>
                 <DropDownBox>
                     <CustomDropDown
                         name="school_name"
@@ -195,9 +193,8 @@ const UniformMaster: React.FC = () => {
 
                 <ButtonBox>
                     <IconButton sx={{
-                        mr: 0,
-                        p: 0,
-                        color: colour.primary
+                        color: colour.primary,
+                        mr : 0
                     }}>
                         <MapsUgcIcon fontSize="large" />
                     </IconButton>
@@ -208,45 +205,16 @@ const UniformMaster: React.FC = () => {
                         Component={uniformButton}
                     />
                 </ButtonBox>
-            </Box>
+            </ValueBox>
 
-            <Box
-                sx={{
-                    marginTop: '24px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    borderRadius: '8px',
-                    backgroundColor: colour.white,
-                    padding: 4,
-                    boxShadow: 'unset',
-                    gap: 3,
-                    borderTop: "4px solid blue",
-
-                }}
-            >
-                <Box sx={{
-                    display: 'flex',
-                    flexDirection: { xs: 'column', sm: 'row' },
-                    alignItems: { xs: 'flex-start', sm: 'center' },
-                    marginLeft: '12px',
-                    marginBottom: { xs: 2, md: 0, lg: 3 },
-                    width: { xs: "100%", md: "35%", lg: "25%" }
-
-                }}>
-                    <Typography
+            <FirstRowTableBox>
+                <UniformBox>
+                    <UniformTypography
                         variant="body1"
-                        fontFamily='"Outfit", sans-serif'
-                        sx={{
-                            minWidth: '80px',
-                            fontWeight: 500,
-                            mr: { sm: 2, xs: 0 },
-                            mb: { xs: '6px' }
-                        }}
                     >
                         Uniform<span style={{ color: 'red' }}>*</span>
-                    </Typography>
-                    <Box sx={{ flexGrow: 1, width: '100%' }}>
+                    </UniformTypography>
+                    <DropDownBoxs>
                         <CustomDropDown
                             name="uniform"
                             id="uniform"
@@ -259,109 +227,46 @@ const UniformMaster: React.FC = () => {
                                 { label: "Sports Wear", value: "sports_wear" }
                             ]}
                         />
-                    </Box>
-                </Box>
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: { xs: "column", lg: "row" },
-                        gap: 3,
-                        width: "100%",
-                    }}
-                >
-                    <Box sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", width: "100%" }}>
-                        <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                    </DropDownBoxs>
+                </UniformBox>
+                <BothTableBox>
+                    <FirstTableOutsideBox>
+                        <FirstTableInsideBox>
                             <AssignmentIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
-                            <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+                            <Typography variant="h4" fontWeight="bold">
                                 Size Details
                             </Typography>
-                        </Box>
-                        <TableContainer
-                            component={Paper}
-                            sx={{
-                                border: "1px solid #d1d1d1",
-                                borderRadius: "8px",
-                                overflow: "hidden",
-
-                            }}
-                        >
+                        </FirstTableInsideBox>
+                        <TableContainerStyle component={Paper}>
                             <Table>
                                 <TableHead>
-                                    <TableRow sx={{ backgroundColor: "#f5f5f5", width: "20%" }}>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: '10px'
-                                            }}
-                                        >
-                                            S.No.
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: '80px'
-
-                                            }}
-                                        >
+                                    <TableRowBackground>
+                                        <SnoHeaderTableCell>S.No.</SnoHeaderTableCell>
+                                        <SizeHeaderTableCell>
                                             Size
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "30%"
-                                            }}
-                                        >
+                                        </SizeHeaderTableCell>
+                                        <QtyHeaderTableCell>
                                             Qty
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "right",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "20%"
-                                            }}
-                                        >
+                                        </QtyHeaderTableCell>
+                                        <RateHeaderTableCell>
                                             Stitchig Rate
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "right",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "20%"
-                                            }}
-                                        >
+                                        </RateHeaderTableCell>
+                                        <AmountHeaderTableCell>
                                             Amount
-                                        </TableCell>
-                                    </TableRow>
+                                        </AmountHeaderTableCell>
+                                    </TableRowBackground>
                                 </TableHead>
 
-                                <TableBody sx={{
-                                    "& td": {
-                                        fontWeight: 500,
-                                        fontSize: "16px"
-                                    }
-                                }}>
+                                <TableBodyStyle>
                                     {stitchingData.map((row) => (
                                         <TableRow key={row.sno}>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0", textAlign: "center" }}>
+                                            <CenterBodyTableCell>
                                                 {row.sno}
-                                            </TableCell>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0", textAlign: "center" }}>
+                                            </CenterBodyTableCell>
+                                            <CenterBodyTableCell>
                                                 {row.size}
-                                            </TableCell>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0", textAlign: "center" }}>
+                                            </CenterBodyTableCell>
+                                            <CenterBodyTableCell>
                                                 <TextField
                                                     type="number"
                                                     size="small"
@@ -376,488 +281,205 @@ const UniformMaster: React.FC = () => {
                                                         "& input": { fontSize: "16px", fontFamily: '"Outfit", sans-serif' },
                                                     }}
                                                 />
-                                            </TableCell>
-                                            <TableCell
-                                                sx={{
-                                                    border: "1px solid #e0e0e0",
-                                                    textAlign: "right",
-                                                    paddingRight: "16px",
-                                                }}
-                                            >
+                                            </CenterBodyTableCell>
+                                            <RightBodyTableCell>
                                                 {row.rate}
-                                            </TableCell>
-                                            <TableCell
-                                                sx={{
-                                                    border: "1px solid #e0e0e0",
-                                                    textAlign: "right",
-                                                    paddingRight: "16px",
-                                                }}
-                                            >
+                                            </RightBodyTableCell>
+                                            <RightBodyTableCell>
                                                 {row.amount}
-                                            </TableCell>
+                                            </RightBodyTableCell>
                                         </TableRow>
                                     ))}
 
 
-                                    <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                        <TableCell sx={{ border: "1px solid #e0e0e0" }}></TableCell>
-                                        <TableCell
-                                            colSpan={1}
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                                fontSize: "16px"
-                                            }}
-                                        >
+                                    <TableRowBackground>
+                                        <TableCellBorder></TableCellBorder>
+                                        <TotalBottomTableBox
+                                            colSpan={1}>
                                             <strong>Total</strong>
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                            }}
-                                        >
+                                        </TotalBottomTableBox>
+                                        <QtyBottomTableBox>
                                             <strong>{totalQty}</strong>
-                                        </TableCell>
-                                        <TableCell sx={{ border: "1px solid #e0e0e0" }}></TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "right",
-                                                fontWeight: "bold",
-                                                paddingRight: "16px",
-                                            }}
-                                        >
+                                        </QtyBottomTableBox>
+                                        <TableCellBorder></TableCellBorder>
+                                        <AmountBottomTableBox>
                                             <strong>{totalAmount}</strong>
-                                        </TableCell>
-                                    </TableRow>
-                                </TableBody>
+                                        </AmountBottomTableBox>
+                                    </TableRowBackground>
+                                </TableBodyStyle>
                             </Table>
-                        </TableContainer>
-                    </Box>
+                        </TableContainerStyle>
+                    </FirstTableOutsideBox>
 
-                    <Box sx={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "flex-start", width: '100%' }}>
-                        <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                    <SecondTableOutsideBox>
+                        <SecondTableInsideBox>
                             <ListAltIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
                             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                 Fabric Details
                             </Typography>
-                        </Box>
+                        </SecondTableInsideBox>
 
-                        <TableContainer
-                            component={Paper}
-                            sx={{
-                                border: "1px solid #d1d1d1",
-                                borderRadius: "8px",
-                                overflow: "hidden",
-                                marginLeft: 0,
-                            }}
-                        >
+                        <TableContainerStyle
+                            component={Paper}>
                             <Table>
                                 <TableHead>
-                                    <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: '80px'
-                                            }}
-                                        >S.No.</TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "Left",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: '50%'
-                                            }}
-                                        >Fabric</TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "Right",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "20%"
-                                            }}
-                                        >Total Meters</TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "Right",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "20%"
-                                            }}
-                                        >Total Amount</TableCell>
-                                    </TableRow>
+                                    <TableRowBackground>
+                                        <SNoHeaderTableCell
+                                        >S.No.</SNoHeaderTableCell>
+                                        <FabricHeaderTableCell
+                                        >Fabric</FabricHeaderTableCell>
+                                        <TotalMeterHeaderTableCell
+                                        >Total Meters</TotalMeterHeaderTableCell>
+                                        <TotalAmountHeaderTableCell
+                                        >Total Amount</TotalAmountHeaderTableCell>
+                                    </TableRowBackground>
                                 </TableHead>
 
-                                <TableBody
-                                    sx={{
-                                        "& td": {
-                                            fontWeight: 500,
-                                            fontSize: "16px",
-                                        }
-                                    }}
-                                >
+                                <TableBodyStyle>
                                     {fabricData.map((row) => (
                                         <TableRow key={row.sno}>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0", textAlign: "center" }}>
-                                                {row.sno}
-                                            </TableCell>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0", textAlign: "Left" }}>
-                                                {row.fabric}
-                                            </TableCell>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0", textAlign: "right" }}>
-                                                {row.total_meters}
-                                            </TableCell>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0", textAlign: "right", paddingRight: "16px" }}>
+                                            <CenterBodyTableCell>{row.sno}</CenterBodyTableCell>
+                                            <LeftBodyTableCell >{row.fabric}</LeftBodyTableCell>
+                                            <RightBodyTableCell >{row.total_meters}</RightBodyTableCell>
+                                            <RightBodyTableCell>
                                                 {row.total_amount}
-                                            </TableCell>
+                                            </RightBodyTableCell>
                                         </TableRow>
                                     ))}
 
 
-                                    <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                        <TableCell sx={{ border: "1px solid #e0e0e0" }}></TableCell>
-                                        <TableCell
+                                    <TableRowBackground>
+                                        <TableCellBorder></TableCellBorder>
+                                        <TotalBottomTableCell
                                             colSpan={1}
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                fontWeight: 700,
-                                                textAlign: "left",
-                                                fontSize: "14px",
-                                            }}
                                         >
                                             <strong>Total</strong>
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "right",
-                                                fontWeight: "bold",
-                                            }}
+                                        </TotalBottomTableCell>
+                                        <MeterBottomTableCell
                                         >
                                             <strong>{fabricData.reduce((sum, row) => sum + row.total_meters, 0)}</strong>
-                                        </TableCell>
-                                        <TableCell
-                                            sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "right",
-                                                fontWeight: "bold",
-                                                paddingRight: "16px",
-                                            }}
+                                        </MeterBottomTableCell>
+                                        <AmountBottomTableCell
                                         >
                                             <strong>{fabricData.reduce((sum, row) => sum + row.total_amount, 0)}</strong>
-                                        </TableCell>
-                                    </TableRow>
-                                </TableBody>
+                                        </AmountBottomTableCell>
+                                    </TableRowBackground>
+                                </TableBodyStyle>
                             </Table>
-                        </TableContainer>
-                    </Box>
+                        </TableContainerStyle>
+                    </SecondTableOutsideBox>
+                </BothTableBox>
+            </FirstRowTableBox>
 
-                </Box>
-            </Box>
-
-            <Box
-                sx={{
-                    marginTop: "24px",
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                    borderRadius: "8px",
-                    backgroundColor: colour.white,
-                    padding: 4,
-                    boxShadow: "unset",
-                    gap: 3,
-                    width: "100%",
-                    borderTop: "4px solid green",
-                }}
-            >
-                <Box
-                    sx={{
-                        display: "flex",
-                        flexDirection: { xs: "column", lg: "row" },
-                        gap: 3,
-                        width: "100%",
-                    }}
-                >
+            <SecondRowTableBox>
+                <BothTableBox>
                     <Box sx={{ flex: 1, minWidth: 0 }}>
-                        <Box
-                            sx={{
-                                flex: 1,
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "flex-start",
-                                mt: 4,
-                                width: "100%",
-                            }}
-                        >
-                            <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                        <StitchingLeftTableBox>
+                            <FirstTableInsideBox>
                                 <AssignmentIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
-                                <Typography variant="h4" sx={{ fontWeight: "bold" }}>
+                                <Typography variant="h4" fontWeight="bold">
                                     Stitching Rate Details
                                 </Typography>
-                            </Box>
+                            </FirstTableInsideBox>
 
-                            <TableContainer
-                                component={Paper}
-                                sx={{
-                                    border: "1px solid #d1d1d1",
-                                    borderRadius: "8px",
-                                    overflow: "hidden",
-                                    marginLeft: 0,
-                                }}
-                            >
+                            <TableContainerStyle
+                                component={Paper}>
                                 <Table>
                                     <TableHead>
-                                        <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                            <TableCell sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: '80px'
-                                            }}>S.No.</TableCell>
-                                            <TableCell sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "left",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "80%"
-                                            }}>Uniform</TableCell>
-                                            <TableCell sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "right",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: '20%'
-                                            }}>Rate</TableCell>
-                                        </TableRow>
-
+                                        <TableRowBackground>
+                                            <CommonFirstTableCell >S.No.</CommonFirstTableCell>
+                                            <CommonSecondTableCell >Uniform</CommonSecondTableCell>
+                                            <CommonThirdTableCell >Rate</CommonThirdTableCell>
+                                        </TableRowBackground>
                                     </TableHead>
-                                    <TableBody
-                                        sx={{ "& td": { fontWeight: 500, fontSize: "16px" } }}
-                                    >
+                                    <TableBodyStyle>
                                         {stitchingRateDetails.map((row) => (
                                             <TableRow key={row.sno}>
-                                                <TableCell
-                                                    sx={{
-                                                        border: "1px solid #e0e0e0",
-                                                        textAlign: "left",
-                                                    }}
-                                                >
+                                                <LeftBodyTableCell>
                                                     {row.sno}
-                                                </TableCell>
-                                                <TableCell
-                                                    sx={{
-                                                        border: "1px solid #e0e0e0",
-                                                        textAlign: "left",
-                                                    }}
-                                                >
+                                                </LeftBodyTableCell>
+                                                <LeftBodyTableCell>
                                                     {row.uniform}
-                                                </TableCell>
-                                                <TableCell
-                                                    sx={{
-                                                        border: "1px solid #e0e0e0",
-                                                        textAlign: "right",
-                                                        paddingRight: "16px",
-                                                    }}
-                                                >
+                                                </LeftBodyTableCell>
+                                                <RightBodyTableCell>
                                                     {row.rate}
-                                                </TableCell>
+                                                </RightBodyTableCell>
                                             </TableRow>
                                         ))}
-                                        <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0" }}></TableCell>
-                                            <TableCell
-                                                colSpan={1}
-                                                sx={{
-                                                    border: "1px solid #e0e0e0",
-                                                    fontWeight: 700,
-                                                    textAlign: "left",
-                                                    fontSize: "14px",
-                                                }}
-                                            >
+                                        <TableRowBackground>
+                                            <TableCellBorder></TableCellBorder>
+                                            <TotalBottomTableCell
+                                                colSpan={1}>
                                                 <strong>Total</strong>
-                                            </TableCell>
-                                            <TableCell
-                                                sx={{
-                                                    border: "1px solid #e0e0e0",
-                                                    textAlign: "right",
-                                                    fontWeight: "bold",
-                                                    paddingRight: "16px",
-                                                }}
-                                            >
-                                                <Box
-                                                    sx={{
-                                                        backgroundColor: colour.lightGreens,
-                                                        color: "black",
-                                                        padding: "8px 16px",
-                                                        borderRadius: "8px",
-                                                        border: '2px solid',
-                                                        borderColor: colour.lightGreen,
-                                                        display: "inline-block"
-                                                    }}
-                                                ><strong>{stitchingRateDetails.reduce((sum, row) => sum + row.rate, 0)}</strong></Box>
-
-                                            </TableCell>
-                                        </TableRow>
-                                    </TableBody>
+                                            </TotalBottomTableCell>
+                                            <AmountBottomTableBox>
+                                                <InsideTableBox
+                                                ><strong>{stitchingRateDetails.reduce((sum, row) => sum + row.rate, 0)}</strong></InsideTableBox>
+                                            </AmountBottomTableBox>
+                                        </TableRowBackground>
+                                    </TableBodyStyle>
                                 </Table>
-                            </TableContainer>
-                        </Box>
+                            </TableContainerStyle>
+                        </StitchingLeftTableBox>
                     </Box>
 
 
                     <Box sx={{ flex: 1, minWidth: 0 }}>
-                        <Box
-                            sx={{
-                                flex: 1,
-                                display: "flex",
-                                flexDirection: "column",
-                                alignItems: "flex-start",
-                                mt: 4,
-                                width: "100%",
-                            }}
-                        >
-                            <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                        <StitchingRightTableBox>
+                            <SecondTableInsideBox>
                                 <ListAltIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
                                 <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                     Stitching Fabric Details
                                 </Typography>
-                            </Box>
+                            </SecondTableInsideBox>
 
-                            <TableContainer
-                                component={Paper}
-                                sx={{
-                                    border: "1px solid #d1d1d1",
-                                    borderRadius: "8px",
-                                    overflow: "hidden",
-                                    marginLeft: 0,
-                                }}
-                            >
+                            <TableContainerStyle
+                                component={Paper}>
                                 <Table>
                                     <TableHead>
-                                        <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                            <TableCell sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "center",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: '80px'
-
-                                            }}>S.No.</TableCell>
-                                            <TableCell sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "left",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "80%"
-                                            }}>Fabric</TableCell>
-                                            <TableCell sx={{
-                                                border: "1px solid #e0e0e0",
-                                                textAlign: "right",
-                                                fontWeight: "bold",
-                                                fontSize: "16px",
-                                                width: "20%"
-                                            }}>Amount</TableCell>
-                                        </TableRow>
+                                        <TableRowBackground>
+                                            <CommonFirstTableCell >S.No.</CommonFirstTableCell>
+                                            <CommonSecondTableCell >Fabric</CommonSecondTableCell>
+                                            <CommonThirdTableCell>Amount</CommonThirdTableCell>
+                                        </TableRowBackground>
                                     </TableHead>
-                                    <TableBody
-                                        sx={{ "& td": { fontWeight: 500, fontSize: "16px" } }}
-                                    >
+                                    <TableBodyStyle>
                                         {stitchingFabricDetails.map((row) => (
                                             <TableRow key={row.sno}>
-                                                <TableCell
-                                                    sx={{
-                                                        border: "1px solid #e0e0e0",
-                                                        textAlign: "center",
-                                                    }}
-                                                >
+                                                <CenterBodyTableCell>
                                                     {row.sno}
-                                                </TableCell>
-                                                <TableCell
-                                                    sx={{
-                                                        border: "1px solid #e0e0e0",
-                                                        textAlign: "left",
-                                                    }}
-                                                >
+                                                </CenterBodyTableCell>
+                                                <LeftBodyTableCell>
                                                     {row.fabric}
-                                                </TableCell>
-                                                <TableCell
-                                                    sx={{
-                                                        border: "1px solid #e0e0e0",
-                                                        textAlign: "right",
-                                                        paddingRight: "16px",
-                                                    }}
-                                                >
+                                                </LeftBodyTableCell>
+                                                <FinalBodyTableCell>
                                                     {row.amount}
-                                                </TableCell>
+                                                </FinalBodyTableCell>
                                             </TableRow>
                                         ))}
-                                        <TableRow sx={{ backgroundColor: "#f5f5f5" }}>
-                                            <TableCell sx={{ border: "1px solid #e0e0e0" }}></TableCell>
-                                            <TableCell
-                                                colSpan={1}
-                                                sx={{
-                                                    border: "1px solid #e0e0e0",
-                                                    fontWeight: 700,
-                                                    textAlign: "Left",
-                                                    fontSize: "14px",
-                                                }}
-                                            >
+                                        <TableRowBackground>
+                                            <TableCellBorder></TableCellBorder>
+                                            <TotalBottomTableCell
+                                                colSpan={1}>
                                                 <strong>Total</strong>
-                                            </TableCell>
-                                            <TableCell
-                                                sx={{
-                                                    border: "1px solid #e0e0e0",
-                                                    textAlign: "right",
-                                                    fontWeight: "bold",
-                                                    paddingRight: "16px",
-                                                }}
+                                            </TotalBottomTableCell>
+                                            <AmountBottomTableCell
                                             >
-                                                <Box
-                                                    sx={{
-                                                        backgroundColor: colour.lightGreens,
-                                                        color: "black",
-                                                        padding: "8px 16px",
-                                                        borderRadius: "8px",
-                                                        border: '2px solid',
-                                                        borderColor: colour.lightGreen,
-                                                        display: "inline-block"
-                                                    }}
-                                                ><strong>{stitchingFabricDetails.reduce((sum, row) => sum + row.amount, 0)}</strong></Box>
+                                                <InsideTableBox>
+                                                    <strong>{stitchingFabricDetails.reduce((sum, row) => sum + row.amount, 0)}</strong></InsideTableBox>
 
-                                            </TableCell>
-                                        </TableRow>
-                                    </TableBody>
+                                            </AmountBottomTableCell>
+                                        </TableRowBackground>
+                                    </TableBodyStyle>
                                 </Table>
-                            </TableContainer>
-                        </Box>
+                            </TableContainerStyle>
+                        </StitchingRightTableBox>
                     </Box>
-                </Box>
+                </BothTableBox>
 
-                <Box
-                    sx={{
-                        display: "flex",
-                        gap: 3,
-                        mt: 4,
-                        flexDirection: { xs: "column", lg: "row", md: "column" },
-                        width: { lg: "80%", xs: "25%", md: "80%" },
-                        alignItems: "flex-start",
-                    }}
+                <RemarksDateBox
                 >
-                    <Box sx={{
-                        flex: { xs: "100%", lg: "50%", md: "100%" },
-                        display: 'flex',
-                        alignItems: 'center'
-                    }}>
+                    <RemarksBox>
                         <CustomTextFields
                             name="remarks"
                             id="remarks"
@@ -866,28 +488,23 @@ const UniformMaster: React.FC = () => {
                             onBlur={formik.handleBlur}
                             multiline
                             rows={5}
+                            size="small"
                             Component={RemarksInputField}
 
                         />
-                    </Box>
+                    </RemarksBox>
 
-                    <Box sx={{
-                        flex: { xs: "100%", lg: "25%", md: "100%" },
-                        display: 'flex',
-                        alignItems: 'center'
-                    }}>
+                    <DateBox>
                         <CustomDatePicker
                             label="Due Date"
                             value={todate}
                             onChange={setTodate}
                         />
-                    </Box>
-                </Box>
-            </Box>
+                    </DateBox>
+                </RemarksDateBox>
+            </SecondRowTableBox>
 
-
-
-            <Box sx={{ marginTop: 3, display: 'flex', justifyContent: 'flex-end', marginBottom: 5 }}>
+            <EndButtonBox>
                 <Stack spacing={2} direction='row'>
                     <CustomButton
                         label="Close"
@@ -906,10 +523,8 @@ const UniformMaster: React.FC = () => {
                         Component={ContinueButton} />
 
                 </Stack>
-            </Box>
+            </EndButtonBox>
         </Box>
-
-
     )
 }
 

@@ -12,6 +12,8 @@ const colour = {
     charCole : '#333',
     blue : '#113454ff',
     lightGreens : '#86d261ff',
+    borderColour : "#d1d1d1" ,
+    TableRowColour : "#f5f5f5"
 }
 
 export default colour;

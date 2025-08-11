@@ -128,7 +128,7 @@ export const DividerStyle = styled(Divider)(() => ({
 //drawer style
 export const DrawerSx = styled(Drawer)<StyleProps>(() => ({
     '& .MuiDrawer-paper': {
-        width: '60vw',
+        width: '62vw',
         maxWidth: '100vw',
         transition: 'width 0.10s',
         boxSizing: 'border-box',

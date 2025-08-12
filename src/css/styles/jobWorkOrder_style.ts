@@ -8,7 +8,6 @@ export const HeaderBox = styled(Box)(() => ({
     justifyContent: "space-between",
     alignItems: "center",
     flexWrap: "wrap",
-
 }));
 
 export const ValueBox = styled(Box)(({ theme }) => ({
@@ -126,7 +125,7 @@ export const BothFirstTableBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.up('lg')]: {
         flexDirection: 'row',
     },
-}));
+}));//11
 
 export const BothSecondTableBox = styled(Box)(({ theme }) => ({
     display: 'flex',
@@ -149,6 +148,7 @@ export const FirstTableOutsideBox = styled(Box)(() => ({
 
 export const FirstTableInsideBox = styled(Box)(() => ({
     display: "flex", alignItems: "center",
+    marginBottom : "8px"
 }));
 
 export const TableContainerStyle = styled(TableContainer)<TableContainerProps>(() => ({
@@ -256,7 +256,7 @@ export const SecondTableOutsideBox = styled(Box)(() => ({
 }));
 
 export const SecondTableInsideBox = styled(Box)(() => ({
-    display: "flex", alignItems: "center", marginBottom: 1
+    display: "flex", alignItems: "center",  marginBottom : "8px"
 }));
 
 export const SNoHeaderTableCell = styled(TableCell)(() => ({
@@ -319,7 +319,6 @@ export const SecondRowTableBox = styled(Box)(({ theme }) => ({
     alignItems: 'flex-start',
     borderRadius: '8px',
     backgroundColor: colour.white,
-    //padding: theme.spacing(1),
     boxShadow: 'unset',
     gap: theme.spacing(3),
     borderTop: `4px solid ${colour.lightGreen}`,

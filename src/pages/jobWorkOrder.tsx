@@ -155,7 +155,7 @@ const UniformMaster: React.FC = () => {
                 <Typography variant="h5" fontWeight='bold'>Job Work Order</Typography>
                 <Box sx={{ textAlign: 'right' }}>
                     <Typography variant="h4" fontWeight='bold'>Job Order No.: 1 </Typography>
-                    <Typography variant="h4" fontWeight='bold'>09/08/2025</Typography>
+                    <Typography variant="h4" fontWeight='bold' alignItems="right">09/08/2025</Typography>
                 </Box>
             </HeaderBox>
             <ValueBox>

@@ -9,7 +9,7 @@ interface DropDowProps {
     name: string;
     id: string;
     value?: string;
-    label?: string,
+    label_text?: string,
     label_name?: string;
     options: { value: string, label: string }[];
     onChange: (e: SelectChangeEvent<string>) => void;
@@ -28,7 +28,7 @@ const DefaultStyles = styled(FormControl)(() => ({
 }));
 
 const CustomDropDown: React.FC<DropDowProps> = ({
-    name, id, value, label_name, label, options, onChange, onBlur, error, helperText, fullWidth, size, Component = DefaultStyles }) => {
+    name, id, value, label_name, options, onChange, onBlur, error, helperText, fullWidth, size, Component = DefaultStyles }) => {
 
     return (
         <Box>
@@ -38,31 +38,36 @@ const CustomDropDown: React.FC<DropDowProps> = ({
                     name={name}
                     id={id}
                     value={value}
-                    label={label}
                     onChange={onChange}
                     onBlur={onBlur}
                     error={error}
                     sx={{
                         fontFamily: '"Outfit", sans-serif',
                         '& .MuiSelect-select': {
-                            padding: '10px 8px', }, }}
+                            padding: '10px 8px',
+                        },
+                    }}
                 >
-                                <MenuItem value=""><b>None</b></MenuItem>
+                    <MenuItem value="">
+                        <em>None</em>
+                    </MenuItem>
                     {options.map((option) => (
-                                    <MenuItem key={option.value} value={option.value} sx={{ fontFamily: '"Outfit", sans-serif' }}>
-                                        {option.label}</MenuItem>
-                                ))}
+                        <MenuItem key={option.value}
+                            value={option.value}
+                            sx={{ fontFamily: '"Outfit", sans-serif' }}>
+                            {option.label}
+                        </MenuItem>
+                    ))}
                 </Select>
-            {
-                error && helperText && (
-                    <Typography variant='caption' color='error' sx={{ ml: 1 }}>
-                        {helperText}
-                    </Typography>
-                )
-            }
-        </Component>
+                {
+                    error && helperText && (
+                        <Typography variant='caption' color='error' sx={{ ml: 1 }}>
+                            {helperText}
+                        </Typography>
+                    )
+                }
+            </Component>
         </Box >
-
 
     );
 

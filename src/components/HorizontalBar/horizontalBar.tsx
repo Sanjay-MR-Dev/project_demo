@@ -1,13 +1,12 @@
 import * as React from 'react';
-import {Typography, MenuItem, Popper} from '@mui/material';
+import {
+    Box,Typography, MenuItem, Popper, Paper
+} from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { ButtonBoxStyle, StackColour } from 'css/style';
+import colour from 'css/colourFile';
 import { submenuMap } from 'components/SubMenuItems/subMenuItems';
 import { menuItems } from 'components/MenuItems/menuItems';
-import {
-     StackColour, ButtonBoxStyle,
-    PaperStyle, ActiveSubitemStyle, HoverStyle, PaperWidth
-} from 'css/style';
-
 
 
 const HorizontalMenu: React.FC = () => {
@@ -53,7 +52,13 @@ const HorizontalMenu: React.FC = () => {
     };
 
     return (
-        <StackColour spacing={1} direction='row' >
+        <StackColour
+            spacing={1}
+            direction="row"
+            justifyContent="left"
+            flexWrap="nowrap"
+        >
+
             {menuItems.map((item) => {
                 const isActive = location.pathname === item.path;
                 const hasSubmenu = Boolean(submenuMap[item.label]);
@@ -65,18 +70,41 @@ const HorizontalMenu: React.FC = () => {
                         onClick={() => {
                             if (!hasSubmenu) navigate(item.path);
                         }}
+                        sx={{ backgroundColor: 'transparent', position: 'relative'}}
                     >
-                        <HoverStyle
+                        <Box
+                            sx={{
+                                position: 'relative',
+                                display: 'inline-block',
+                                '&::after': {
+                                    content: '""',
+                                    position: 'absolute',
+                                    left: 0,
+                                    bottom: 0,
+                                    height: '2px',
+                                    width: isActive ? '100%' : '0%',
+                                    backgroundColor: colour.black,
+                                    transition: 'width 0.3s ease-in-out',
+                                },
+                                '&:hover::after': {
+                                    width: '100%',
+                                },
+                            }}
                             ref={hasSubmenu ? setSubAnchorEl : undefined}
-                            active={isActive}
                         >
                             <Typography
                                 variant="caption"
-                                component={PaperWidth}
+                                sx={{
+                                    mt: 0.5,
+                                    fontWeight: isActive ? 600 : 400,
+                                    fontFamily: '"Outfit", sans-serif',
+                                    color: 'black',
+                                    fontSize: '0.95rem',
+                                }}
                             >
                                 {item.label}
                             </Typography>
-                        </HoverStyle>
+                        </Box>
                     </ButtonBoxStyle>
                 );
             })}
@@ -88,21 +116,28 @@ const HorizontalMenu: React.FC = () => {
                 disablePortal
                 modifiers={[{ name: 'offset', options: { offset: [0, 8] } }]}
             >
-                <PaperStyle
+                <Paper
                     onMouseEnter={handleSubPopperEnter}
                     onMouseLeave={handleSubPopperLeave}
                     elevation={3}
+                    sx={{
+                        mt: 1,
+                        borderRadius: 2,
+                        backgroundColor: colour.white,
+                        minWidth: 160,
+                        zIndex: 1300,
+                    }}
                 >
                     {activeSubItems.map((sub) => (
                         <MenuItem
                             key={sub.path}
                             onClick={() => handleSubMenuItemClick(sub.path)}
-                            component ={ActiveSubitemStyle}
+                            sx={{ px: 2, py: 1 }}
                         >
                             {sub.label}
                         </MenuItem>
                     ))}
-                </PaperStyle>
+                </Paper>
             </Popper>
         </StackColour>
     );

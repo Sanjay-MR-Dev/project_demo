@@ -7,7 +7,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import Lock from '@mui/icons-material/Lock';
 import Logout from '@mui/icons-material/Logout';
 import AppBarImage from 'assets/logo.png';
-import HorizontalMenu from 'pages/mainMaster';
+import HorizontalMenu from "components/HorizontalBar/horizontalBar"
 import { useMediaQuery } from '@mui/material';
 import {
     AppbarStyle, ToolBarStyle, BoxStyle,

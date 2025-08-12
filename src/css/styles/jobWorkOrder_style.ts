@@ -1,6 +1,6 @@
 import { styled, TableBody, TableCell, TableContainer, TableContainerProps, TableRow } from "@mui/material";
 import colour from "css/colourFile";
-import { Box, Typography, Stack, TextField, Button } from '@mui/material';
+import { Box, Typography, TextField, Button } from '@mui/material';
 
 
 export const HeaderBox = styled(Box)(() => ({
@@ -18,7 +18,7 @@ export const ValueBox = styled(Box)(({ theme }) => ({
     alignItems: 'stretch',
     borderRadius: '8px',
     backgroundColor: colour.white,
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     position: 'static',
     boxShadow: 'unset',
     [theme.breakpoints.up('md')]: {
@@ -69,7 +69,7 @@ export const FirstRowTableBox = styled(Box)(({ theme }) => ({
     alignItems: 'flex-start',
     borderRadius: '8px',
     backgroundColor: colour.white,
-    padding: theme.spacing(4),
+    padding: theme.spacing(1),
     boxShadow: 'unset',
     gap: theme.spacing(3),
     borderTop: '4px solid blue',
@@ -88,7 +88,6 @@ export const UniformBox = styled(Box)(({ theme }) => ({
     },
 
     [theme.breakpoints.up('md')]: {
-        marginBottom: 0,
         width: '35%',
     },
 
@@ -101,7 +100,7 @@ export const UniformTypography = styled(Typography)(({ theme }) => ({
     minWidth: '80px',
     fontWeight: 500,
     fontFamily: '"Outfit", sans-serif',
-    marginBottom: '6px',
+    marginBottom: '2px',
 
     [theme.breakpoints.up('sm')]: {
         marginRight: theme.spacing(2),
@@ -118,7 +117,18 @@ export const DropDownBoxs = styled(Box)(({ theme }) => ({
     }
 }));
 
-export const BothTableBox = styled(Box)(({ theme }) => ({
+export const BothFirstTableBox = styled(Box)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    gap: theme.spacing(5),
+    width: '100%',
+
+    [theme.breakpoints.up('lg')]: {
+        flexDirection: 'row',
+    },
+}));
+
+export const BothSecondTableBox = styled(Box)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'column',
     gap: theme.spacing(3),
@@ -128,7 +138,6 @@ export const BothTableBox = styled(Box)(({ theme }) => ({
         flexDirection: 'row',
     },
 }));
-
 
 export const FirstTableOutsideBox = styled(Box)(() => ({
     flex: 1,
@@ -149,7 +158,7 @@ export const TableContainerStyle = styled(TableContainer)<TableContainerProps>((
 }));
 
 export const TableRowBackground = styled(TableRow)(() => ({
-    backgroundColor: `${colour.TableRowColour}`
+    backgroundColor: `${colour.tableRowColour}`
 }));
 
 export const SnoHeaderTableCell = styled(TableCell)(() => ({
@@ -173,7 +182,7 @@ export const QtyHeaderTableCell = styled(TableCell)(() => ({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
-    width: '30%'
+    width: '25%'
 }));
 
 export const RateHeaderTableCell = styled(TableCell)(() => ({
@@ -203,7 +212,6 @@ export const RightBodyTableCell = styled(TableCell)(() => ({
     border: `1px solid ${colour.borderColour}`,
     textAlign: "right",
     padding: "8px 8px",
-    
 
 }));
 
@@ -218,7 +226,7 @@ export const LeftBodyTableCell = styled(TableCell)(() => ({
     border: `1px solid ${colour.borderColour}`,
     textAlign: "left",
     padding: "8px 8px",
-    
+
 }));
 
 export const TotalBottomTableBox = styled(TableCell)(() => ({
@@ -311,7 +319,7 @@ export const SecondRowTableBox = styled(Box)(({ theme }) => ({
     alignItems: 'flex-start',
     borderRadius: '8px',
     backgroundColor: colour.white,
-    padding: theme.spacing(4),
+    //padding: theme.spacing(1),
     boxShadow: 'unset',
     gap: theme.spacing(3),
     borderTop: `4px solid ${colour.lightGreen}`,
@@ -331,7 +339,6 @@ export const CommonFirstTableCell = styled(TableCell)(() => ({
     textAlign: "center",
     fontWeight: "bold",
     fontSize: "16px",
-    padding: "8px 8px",
     width: '80px'
 }));
 
@@ -340,7 +347,6 @@ export const CommonSecondTableCell = styled(TableCell)(() => ({
     textAlign: "left",
     fontWeight: "bold",
     fontSize: "16px",
-    padding: "8px 8px",
     width: "80%"
 }));
 
@@ -349,7 +355,6 @@ export const CommonThirdTableCell = styled(TableCell)(() => ({
     textAlign: "right",
     fontWeight: "bold",
     fontSize: "16px",
-    padding: "8px 8px",
     width: "20%"
 }));
 
@@ -384,6 +389,7 @@ export const InsideTableBox = styled(TableCell)(() => ({
 
 export const RemarksDateBox = styled(Box)(({ theme }) => ({
     display: 'flex',
+    marginLeft : '12px',
     gap: theme.spacing(3),
     flexDirection: 'column',
     width: '25%',

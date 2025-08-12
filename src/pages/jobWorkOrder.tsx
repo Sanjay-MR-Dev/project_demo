@@ -1,13 +1,13 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useEffect } from "react";
 import {
-    Box, TextField, Typography, Table, TableBody, TableCell, TableContainer,
+    Box, TextField, Typography, Table,
     TableHead, TableRow, IconButton, Paper,
     Stack
 } from "@mui/material";
 import colour from "css/colourFile";
 import CustomDropDown from "components/DropDown/dropDowm";
 import { useFormik } from "formik";
-import * as yup from "yup";
+//import * as yup from "yup";
 import MapsUgcIcon from '@mui/icons-material/MapsUgc';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import ListAltIcon from '@mui/icons-material/ListAlt';
@@ -20,14 +20,15 @@ import {
     TotalAmountHeaderTableCell, TotalMeterHeaderTableCell, FabricHeaderTableCell, SNoHeaderTableCell, AmountBottomTableCell,
     MeterBottomTableCell, TotalBottomTableCell, CommonThirdTableCell, CommonSecondTableCell, CommonFirstTableCell,
     FinalBodyTableCell, TableRowBackground, TableCellBorder, ValueBox, FirstRowTableBox, UniformBox, FirstTableInsideBox,
-    UniformTypography, DropDownBoxs, BothTableBox, FirstTableOutsideBox, TableBodyStyle, QtyBottomTableBox, AmountBottomTableBox,
+    UniformTypography, DropDownBoxs, FirstTableOutsideBox, TableBodyStyle, QtyBottomTableBox, AmountBottomTableBox,
     TotalBottomTableBox, SecondTableInsideBox, SecondTableOutsideBox, SecondRowTableBox, RemarksDateBox, RemarksBox, DateBox, TableContainerStyle,
+    BothSecondTableBox, BothFirstTableBox,
 } from "css/styles/jobWorkOrder_style";
 import instance from "../axios/axiosinstance";
 import CustomTextFields from "components/TextField/textfield";
 import CustomDatePicker from "components/Date/date";
 import dayjs, { Dayjs } from "dayjs";
-
+/*
 interface SchoolName {
     value: string;
     label: string;
@@ -35,7 +36,7 @@ interface SchoolName {
 interface TailorName {
     value: string;
     label: string;
-}
+}*/
 
 interface StitchingRow {
     sno: number;
@@ -89,14 +90,14 @@ const stitchingFabricDetails: StitchingFabric[] = [
 
 
 const UniformMaster: React.FC = () => {
-    const [schoolName, setSchoolName] = React.useState<SchoolName[]>([]);
-    const [tailorName, setTailorName] = React.useState<TailorName[]>([]);
-    const [open, setOpen] = React.useState<boolean>(false);
-    const [jobOrder, setJobOrder] = React.useState({ number: "", date: "" });
+    //const [schoolName, setSchoolName] = React.useState<SchoolName[]>([]);
+    //const [tailorName, setTailorName] = React.useState<TailorName[]>([]);
+    //const [open, setOpen] = React.useState<boolean>(false);
+    //const [jobOrder, setJobOrder] = React.useState({ number: "", date: "" });
     const [stitchingData, setStitchingData] = React.useState<StitchingRow[]>(initialData);
-    const [fabricData, setFabricData] = React.useState<FabricRow[]>(fabricInitialData);
-    const [stitchingRate, setStitchingRate] = React.useState<StitchingRate[]>(stitchingRateDetails);
-    const [stitchingFabric, setStitchingFabric] = React.useState<StitchingFabric[]>(stitchingFabricDetails);
+    const [fabricData] = React.useState<FabricRow[]>(fabricInitialData);
+    //const [stitchingRate, setStitchingRate] = React.useState<StitchingRate[]>(stitchingRateDetails);
+    //const [stitchingFabric, setStitchingFabric] = React.useState<StitchingFabric[]>(stitchingFabricDetails);
     const today = dayjs();
     const [todate, setTodate] = React.useState<Dayjs | null>(today);
 
@@ -125,20 +126,20 @@ const UniformMaster: React.FC = () => {
     const totalQty = stitchingData.reduce((sum, row) => sum + row.qty, 0);
     const totalAmount = stitchingData.reduce((sum, row) => sum + row.amount, 0);
 
-    const formatDate = (dateString: string | number | Date) => {
+    /*const formatDate = (dateString: string | number | Date) => {
         const dateObj = new Date(dateString);
         return dateObj.toLocaleDateString("en-GB");
-    };
+    };*/
 
     useEffect(() => {
         const fetchJoborder = async () => {
             try {
                 const response = await instance.post("");
                 if (response.data) {
-                    setJobOrder({
+                    /*setJobOrder({
                         number: response.data.job_order_no,
                         date: formatDate(response.data.date)
-                    });
+                    });*/
                 }
             }
             catch (error) {
@@ -147,7 +148,6 @@ const UniformMaster: React.FC = () => {
         }
         fetchJoborder();
     }, []);
-
 
     return (
         <Box>
@@ -192,16 +192,13 @@ const UniformMaster: React.FC = () => {
                 </DropDownBox>
 
                 <ButtonBox>
-                    <IconButton sx={{
-                        color: colour.primary,
-                        //mr : 0
-                    }}>
+                    <IconButton sx={{ color: colour.primary }}>
                         <MapsUgcIcon fontSize="large" />
                     </IconButton>
                     <CustomButton
                         label="Add Uniforms"
                         variant="contained"
-                        onClick={() => setOpen(true)}
+                        //onClick={() => setOpen(true)}
                         Component={uniformButton}
                     />
                 </ButtonBox>
@@ -229,10 +226,10 @@ const UniformMaster: React.FC = () => {
                         />
                     </DropDownBoxs>
                 </UniformBox>
-                <BothTableBox>
+                <BothFirstTableBox>
                     <FirstTableOutsideBox>
                         <FirstTableInsideBox>
-                            <AssignmentIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
+                            <AssignmentIcon sx={{ mr: 1, color: colour.iconColour }} />
                             <Typography variant="h4" fontWeight="bold">
                                 Size Details
                             </Typography>
@@ -274,12 +271,14 @@ const UniformMaster: React.FC = () => {
                                                     onChange={(e) => handleQtyChange(row.sno, e.target.value)}
                                                     inputProps={{
                                                         min: 0,
+                                                        max: 100,
                                                         style: { textAlign: "center", padding: "2px", },
                                                     }}
                                                     sx={{
                                                         borderRadius: '8px',
                                                         "& .MuiInputBase-root": {
-                                                            height: "35px",   
+                                                            padding: '12px 32px',
+                                                            height: "35px",
                                                         },
                                                         "& input": {
                                                             fontSize: "16px",
@@ -319,7 +318,7 @@ const UniformMaster: React.FC = () => {
 
                     <SecondTableOutsideBox>
                         <SecondTableInsideBox>
-                            <ListAltIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
+                            <ListAltIcon sx={{ mr: 1, color: colour.iconColour }} />
                             <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                 Fabric Details
                             </Typography>
@@ -374,15 +373,15 @@ const UniformMaster: React.FC = () => {
                             </Table>
                         </TableContainerStyle>
                     </SecondTableOutsideBox>
-                </BothTableBox>
+                </BothFirstTableBox>
             </FirstRowTableBox>
 
             <SecondRowTableBox>
-                <BothTableBox>
+                <BothSecondTableBox>
                     <Box sx={{ flex: 1, minWidth: 0 }}>
                         <StitchingLeftTableBox>
                             <FirstTableInsideBox>
-                                <AssignmentIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
+                                <AssignmentIcon sx={{ mr: 1, color: colour.iconColour }} />
                                 <Typography variant="h4" fontWeight="bold">
                                     Stitching Rate Details
                                 </Typography>
@@ -401,9 +400,9 @@ const UniformMaster: React.FC = () => {
                                     <TableBodyStyle>
                                         {stitchingRateDetails.map((row) => (
                                             <TableRow key={row.sno}>
-                                                <LeftBodyTableCell>
+                                                <CenterBodyTableCell>
                                                     {row.sno}
-                                                </LeftBodyTableCell>
+                                                </CenterBodyTableCell>
                                                 <LeftBodyTableCell>
                                                     {row.uniform}
                                                 </LeftBodyTableCell>
@@ -433,7 +432,7 @@ const UniformMaster: React.FC = () => {
                     <Box sx={{ flex: 1, minWidth: 0 }}>
                         <StitchingRightTableBox>
                             <SecondTableInsideBox>
-                                <ListAltIcon sx={{ mr: 1, color: "#a4a4a4ff" }} />
+                                <ListAltIcon sx={{ mr: 1, color: colour.iconColour }} />
                                 <Typography variant="h4" sx={{ fontWeight: "bold" }}>
                                     Stitching Fabric Details
                                 </Typography>
@@ -481,7 +480,7 @@ const UniformMaster: React.FC = () => {
                             </TableContainerStyle>
                         </StitchingRightTableBox>
                     </Box>
-                </BothTableBox>
+                </BothSecondTableBox>
 
                 <RemarksDateBox
                 >

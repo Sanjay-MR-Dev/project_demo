@@ -29,10 +29,10 @@ const DefaultTextFieldStyles = styled(TextField)(() => ({
     },
     '& .MuiFormHelperText-root': {
         fontFamily: '"Outfit", sans-serif',
-    },
+    },/*
     '& .MuiInputBase-input': {
         fontFamily: '"Outfit", sans-serif',
-    },
+    },*/
 
 }));
 

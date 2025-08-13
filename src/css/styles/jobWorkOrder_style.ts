@@ -36,6 +36,9 @@ export const DropDownBox = styled(Box)(({ theme }) => ({
     [theme.breakpoints.up('lg')]: {
         width: '20%',
     },
+    '& .MuiSelect-select': {
+        padding: '10px 8px',
+    },
 }));
 
 export const ButtonBox = styled(Box)(({ theme }) => ({
@@ -108,6 +111,9 @@ export const UniformTypography = styled(Typography)(({ theme }) => ({
 
 export const DropDownBoxs = styled(Box)(({ theme }) => ({
     flexGrow: 1, width: '100%',
+    '& .MuiSelect-select': {
+        padding: '10px 8px',
+    },
     [theme.breakpoints.up('lg')]: {
         width: '50%',
     },
@@ -148,7 +154,7 @@ export const FirstTableOutsideBox = styled(Box)(() => ({
 
 export const FirstTableInsideBox = styled(Box)(() => ({
     display: "flex", alignItems: "center",
-    marginBottom : "8px"
+    marginBottom: "8px"
 }));
 
 export const TableContainerStyle = styled(TableContainer)<TableContainerProps>(() => ({
@@ -256,7 +262,7 @@ export const SecondTableOutsideBox = styled(Box)(() => ({
 }));
 
 export const SecondTableInsideBox = styled(Box)(() => ({
-    display: "flex", alignItems: "center",  marginBottom : "8px"
+    display: "flex", alignItems: "center", marginBottom: "8px"
 }));
 
 export const SNoHeaderTableCell = styled(TableCell)(() => ({
@@ -388,7 +394,7 @@ export const InsideTableBox = styled(TableCell)(() => ({
 
 export const RemarksDateBox = styled(Box)(({ theme }) => ({
     display: 'flex',
-    marginLeft : '12px',
+    marginLeft: '12px',
     gap: theme.spacing(3),
     flexDirection: 'column',
     width: '25%',

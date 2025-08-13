@@ -1,6 +1,8 @@
 import { styled } from "@mui/material";
 import colour from "css/colourFile";
 import { Box, Typography, Stack, TextField } from '@mui/material';
+import { Padding } from "@mui/icons-material";
+import { purple } from "@mui/material/colors";
 
 
 export const VoucherLabelText = styled(Typography)(({ theme }) => ({
@@ -141,7 +143,7 @@ export const ItemListContainer = styled(Box)(() => ({
     boxShadow: 'unset'
 }));
 
-export const TaxSummaryBox = styled(Box)(() => ({
+export const TaxSummaryBox = styled(Box)(({theme}) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
@@ -150,7 +152,16 @@ export const TaxSummaryBox = styled(Box)(() => ({
     height: '90px',//fix
     backgroundColor: colour.blue,
     padding: 16,
-    boxShadow: 'unset'
+    boxShadow: 'unset',
+    [theme.breakpoints.up('sm')]: {
+    backgroundColor: purple, //0 to 899
+    },
+    [theme.breakpoints.up('md')]: {
+    backgroundColor: colour.red, // 900 to 1199
+    },
+    [theme.breakpoints.up('lg')]: { // 1200 to 1499
+    backgroundColor: colour.iconColour,
+    },
 }));
 
 export const PurchasePageLayout = styled(Box)(() => ({

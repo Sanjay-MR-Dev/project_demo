@@ -43,9 +43,10 @@ const CustomDropDown: React.FC<DropDowProps> = ({
                     error={error}
                     sx={{
                         fontFamily: '"Outfit", sans-serif',
+                        /* Box
                         '& .MuiSelect-select': {
                             padding: '10px 8px',
-                        },
+                        },*/
                     }}
                 >
                     <MenuItem value="">

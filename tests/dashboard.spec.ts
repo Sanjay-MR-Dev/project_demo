@@ -19,4 +19,6 @@ test("DashBoard", async ({ page }) => {
 
     await expect(page).toHaveURL(/login/);
 
+    await page.click('label:has-text("Active")');
+
 });

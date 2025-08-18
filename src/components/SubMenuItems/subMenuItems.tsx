@@ -34,8 +34,9 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import EventBusyIcon from '@mui/icons-material/EventBusy';
 
 interface itemsProps {
-    label: string,
-    path: string,
+    label: string;
+    id?: string;
+    path: string;
     icon?: React.ReactElement;
 };
 
@@ -56,8 +57,8 @@ export const submenuMap: Record<string, itemsProps[]> = {
         { label: 'Customer', path: '/master/customer', icon: <GroupIcon /> }
     ],
     "Inventory Master": [
-        { label: 'RM Item Group', path: 'inventory/rm-group-master', icon: <FoodBankIcon /> },
-        { label: 'RM Item Sub Group', path: '/inventory/rm-subgroup', icon: <KebabDiningIcon /> },
+        {id:'submenu-rmitemgroup', label: 'RM Item Group', path: 'inventory/rm-group-master', icon: <FoodBankIcon /> },
+        {id:'submenu-rmitemsubgroup', label: 'RM Item Sub Group', path: '/inventory/rm-subgroup', icon: <KebabDiningIcon /> },
         { label: 'RM Item Master', path: '/inventory/rm-item-master', icon: <RamenDiningIcon /> },
         { label: 'Location Master', path: '/inventory/location-master', icon: <MyLocationIcon /> },
         { label: 'Department', path: '/inventory/department', icon: <MyLocationIcon /> },

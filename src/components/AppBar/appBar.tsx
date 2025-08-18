@@ -52,6 +52,7 @@ const AppBars: React.FC<Props> = ({ onMenuClick }) => {
                         <AppbarImageStyle src={AppBarImage} alt="App Logo" />
                         {isMobile &&
                             <IconButton
+                                id = 'menu'
                                 size="large"
                                 edge="start"
                                 aria-label="menu"

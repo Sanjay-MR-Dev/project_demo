@@ -8,6 +8,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import AssessmentIcon from '@mui/icons-material/Assessment';
 
 interface itemsProps {
+    id : string;
     label: string;
     path: string;
     icon?: React.ReactElement;
@@ -15,12 +16,12 @@ interface itemsProps {
 }
 
  export const menuItems: itemsProps[] = [
-        { label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
-        { label: 'Job Work Order', path: '/job-work-order', icon: <DashboardIcon /> },
-        { label: 'Master', path: '/master', icon: <ViewListIcon /> },
-        { label: 'Inventory Master', path: '/inventory_master', icon: <WarehouseIcon /> },
-        { label: 'Inventory', path: '/inventory', icon: <DescriptionIcon /> },
-        { label: 'Receipe', path: '/receipe', icon: <BreakfastDiningIcon /> },
-        { label: 'Stock Report', path: '/stock_report', icon: <AutoStoriesIcon /> },
-        { label: 'Report', path: '/report', icon: <AssessmentIcon /> },
+        {id :'menu-dashboard', label: 'Dashboard', path: '/dashboard', icon: <DashboardIcon /> },
+        {id :'menu-jobworkorder', label: 'Job Work Order', path: '/job-work-order', icon: <DashboardIcon /> },
+        {id :'menu-master', label: 'Master', path: '/master', icon: <ViewListIcon /> },
+        {id :'menu-inventorymaster', label: 'Inventory Master', path: '/inventory_master', icon: <WarehouseIcon /> },
+        {id :'menu-inventory', label: 'Inventory', path: '/inventory', icon: <DescriptionIcon /> },
+        {id :'menu-receipe', label: 'Receipe', path: '/receipe', icon: <BreakfastDiningIcon /> },
+        {id :'menu-stockreport', label: 'Stock Report', path: '/stock_report', icon: <AutoStoriesIcon /> },
+        {id :'menu-report', label: 'Report', path: '/report', icon: <AssessmentIcon /> },
     ];

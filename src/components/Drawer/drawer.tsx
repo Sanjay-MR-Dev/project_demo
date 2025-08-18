@@ -23,7 +23,7 @@ const Drawers: React.FC<Props> = ({ collapsed, isMobile, onCloseDrawer }) => {
     const navigate = useNavigate();
     const location = useLocation();
     const [openSubMenu, setOpenSubMenu] = React.useState<{ [key: string]: boolean }>({});
-    
+
     const toggleSubMenu = (label: string) => {
         setOpenSubMenu((prev) => ({
             ...prev,
@@ -35,13 +35,21 @@ const Drawers: React.FC<Props> = ({ collapsed, isMobile, onCloseDrawer }) => {
         navigate(path);
         if (isMobile && onCloseDrawer) {
             onCloseDrawer();
+            setOpenSubMenu({});
         }
     };
 
-    if(!isMobile) return null;
+    React.useEffect(() => {
+        if (collapsed) {
+            setOpenSubMenu({});
+        }
+    }, [collapsed]);
+
+    if (!isMobile) return null;
 
     return (
         <DrawerSx variant="permanent"
+            id="drawer-menu"
             anchor="left"
             open
             collapsed={collapsed}>
@@ -64,6 +72,7 @@ const Drawers: React.FC<Props> = ({ collapsed, isMobile, onCloseDrawer }) => {
                         <React.Fragment key={item.label}>
                             <DrawerListItemSx collapsed={collapsed}>
                                 <ListItemButtonSx
+                                    id={item.id}
                                     collapsed={collapsed}
                                     selected={location.pathname === item.path}
                                     onClick={() =>
@@ -92,6 +101,7 @@ const Drawers: React.FC<Props> = ({ collapsed, isMobile, onCloseDrawer }) => {
                                     {submenuMap[item.label].map((subItem) => (
                                         <ListItem key={subItem.path} disablePadding sx={{ pl: 4 }}>
                                             <ListItemButton
+                                                id={subItem.id}
                                                 selected={location.pathname === subItem.path}
                                                 onClick={() => handleNavigate(subItem.path)}
                                                 sx={{

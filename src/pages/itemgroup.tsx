@@ -8,7 +8,7 @@ import *  as yup from 'yup';
 import ListIcon from '@mui/icons-material/Add';
 import { CommonHeaderBox, CommonModalBox, CommonTypography, ErrorButton } from 'css/style';
 import CustomTextFields from 'components/TextField/textfield';
-import {CustomTable} from 'components/MaterialReactTable/materialReactTable';
+import { CustomTable } from 'components/MaterialReactTable/materialReactTable';
 import CustomButton from 'components/Button/button';
 import instance from '../axios/axiosinstance';
 import { useLoading } from 'components/Loader/loadingContext';
@@ -24,7 +24,7 @@ const ItemGroup: React.FC = () => {
     const [tableData, setTableData] = React.useState<RMItem[]>([]);
 
     const columns: MRT_ColumnDef<RMItem>[] = [
-        {Cell:({row})=> row.index +1, header:'#', id:'serial-number'},
+        { Cell: ({ row }) => row.index + 1, header: '#', id: 'serial-number' },
         { accessorKey: 'item_group', header: 'Item Group' },
         { accessorKey: 'status', header: 'Status' }
     ];
@@ -45,7 +45,7 @@ const ItemGroup: React.FC = () => {
                 const response = await instance.post(`/getitemgroup/value`);
                 const values = response.data?.map((value: RMItem) => ({
                     item_group: value.item_group,
-                    status : value.status || "Active",
+                    status: value.status || "Active",
                 }));
                 setTableData(values);
             } catch (error) {
@@ -87,7 +87,6 @@ const ItemGroup: React.FC = () => {
         setOpen(false);
     }
 
-
     return (
         <>
             <CommonHeaderBox>
@@ -97,6 +96,7 @@ const ItemGroup: React.FC = () => {
                 </CommonTypography>
 
                 <CustomButton
+                    id='AddRmGroup'
                     label='Add RM Group'
                     variant="contained"
                     startIcon={<ListIcon />}
@@ -127,6 +127,7 @@ const ItemGroup: React.FC = () => {
 
                         <Stack spacing={2} direction='row'>
                             <CustomButton
+                                id='submit'
                                 label='Sumbit'
                                 variant='contained'
                                 onClick={() => formik.handleSubmit()}
@@ -139,7 +140,6 @@ const ItemGroup: React.FC = () => {
                             />
                         </Stack>
                     </Stack>
-
                 </CommonModalBox>
             </Modal>
 

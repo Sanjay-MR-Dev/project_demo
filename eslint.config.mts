@@ -5,6 +5,8 @@ import { defineConfig } from "eslint/config";
 import eslintPluginJest from "eslint-plugin-jest";
 import tseslint from "@typescript-eslint/eslint-plugin";
 import tseslintParser from "@typescript-eslint/parser";
+import playwright from "eslint-plugin-playwright";
+
 
 export default defineConfig([
   // JavaScript base config
@@ -15,6 +17,25 @@ export default defineConfig([
       globals: globals.browser,
     },
     extends: ["js/recommended"],
+  },
+
+  //Playwright Plugins
+  {
+    files: ["**/playwright.config.{js,ts}", "**/tests/**/*.js", "**/tests/**/*.ts"],
+    languageOptions: {
+      sourceType: "module",
+      globals: {
+        ...globals.node,
+      },
+    },
+    plugins: {
+      playwright,
+    },
+    rules: {
+      ...playwright.configs.recommended.rules,
+      "playwright/valid-expect": "off",  
+      "playwright/no-wait-for-timeout": "off",
+    },
   },
 
   // CommonJS support for plain JS files
@@ -80,5 +101,15 @@ export default defineConfig([
         version: "detect",
       },
     },
+  },
+
+  {
+    ignores: [
+      "node_modules",
+      "dist",
+      "build",
+      "coverage",
+      "playwright-report",
+    ],
   },
 ]);

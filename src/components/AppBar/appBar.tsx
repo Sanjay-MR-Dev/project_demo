@@ -64,11 +64,11 @@ const AppBars: React.FC<Props> = ({ onMenuClick }) => {
 
                     {!isMobile && <HorizontalMenu />}
 
-                    <BoxStyle onClick={handleMenuClick}>
-                        <TypographyStyle variant="subtitle1" fontFamily='"Outfit", sans-serif' >
+                    <BoxStyle onClick={handleMenuClick} id='account-name-button'>
+                        <TypographyStyle variant="subtitle1" fontFamily='"Outfit", sans-serif' id='account-name' >
                             Trio-s Software Consultancy Pvt Ltd
                         </TypographyStyle>
-                        <IconButton size="large" edge="end" >
+                        <IconButton size="large" edge="end" id='account-button'>
                             <AccountCircle sx={{ fontSize: 40 }} />
                         </IconButton>
                     </BoxStyle>

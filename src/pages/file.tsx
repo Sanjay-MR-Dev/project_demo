@@ -8,7 +8,7 @@ import *  as yup from 'yup';
 import ListIcon from '@mui/icons-material/Add';
 import { CommonHeaderBox, CommonModalBox, CommonTypography, DropDownStyle, ErrorButton } from 'css/style';
 import CustomTextFields from 'components/TextField/textfield';
-import {CustomTable} from 'components/MaterialReactTable/materialReactTable';
+import { CustomTable } from 'components/MaterialReactTable/materialReactTable';
 import CustomDropDown from 'components/DropDown/dropDowm';
 import CustomRadioGroup from 'components/RadioButton/radioButton'
 import CustomCheckBox from 'components/CheckedBox/checkedBox';
@@ -25,7 +25,7 @@ interface RMItem {
 }
 
 interface ItemGroup {
-    item_group : string
+    item_group: string
 }
 
 const MyFile: React.FC = () => {
@@ -33,7 +33,7 @@ const MyFile: React.FC = () => {
     const [open, setOpen] = React.useState<boolean>(false);
     const [tableData, setTableData] = React.useState<RMItem[]>([]);
     const [itemGroupOptions, setItemGroupOptions] = React.useState<{ value: string; label: string }[]>([]);
-    
+
 
     const columns: MRT_ColumnDef<RMItem>[] = [
         { Cell: ({ row }) => row.index + 1, header: '#', id: 'serial-number' },
@@ -130,7 +130,7 @@ const MyFile: React.FC = () => {
     }
 
     return (
-        <>
+        <Box data-testid = "file-container">
             <CommonHeaderBox>
                 <CommonTypography
                     variant="inherit">
@@ -138,6 +138,7 @@ const MyFile: React.FC = () => {
                 </CommonTypography>
 
                 <CustomButton
+                    id='AddRm-Button'
                     label='Add RM Item'
                     variant="contained"
                     startIcon={<ListIcon />}
@@ -149,7 +150,7 @@ const MyFile: React.FC = () => {
             </Box>
 
             <Modal open={open} onClose={() => setOpen(false)}>
-                <CommonModalBox>
+                <CommonModalBox id='AddRm-Modal'>
                     <Stack spacing={2}>
                         <Typography variant='h6' fontWeight='bold'>
                             Add RM Item
@@ -206,6 +207,7 @@ const MyFile: React.FC = () => {
 
                         <Stack spacing={2} direction='row'>
                             <CustomButton
+                                id= 'submit'
                                 label='Sumbit'
                                 variant='contained'
                                 onClick={() => formik.handleSubmit()}
@@ -222,7 +224,7 @@ const MyFile: React.FC = () => {
                 </CommonModalBox>
             </Modal>
 
-        </>
+        </Box>
     );
 }
 export default MyFile;

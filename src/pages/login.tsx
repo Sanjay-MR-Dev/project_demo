@@ -67,7 +67,7 @@ const Login: React.FC = () => {
     });
 
     return (
-        <Box>
+        <Box data-testid = "login-container">
             <GridBox container component='main'>
                 <PaperModal elevation={6}>
                     <ImageBox

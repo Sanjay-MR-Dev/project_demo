@@ -24,8 +24,8 @@ const App: React.FC = () => {
         <Route element={<MainLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/job-work-order" element={<UniformMaster />} />
-          <Route path="/inventory/rm-group-master" element={<MyFile />} />
-          <Route path="/inventory/rm-subgroup" element={<ItemGroup />} />
+          <Route path="/inventory/rm-group-master" element={<ItemGroup />} />
+          <Route path="/inventory/rm-subgroup" element={<MyFile />} />
           <Route path="/inventory/inventory-list" element={<Purchase />} />
           <Route path="/receipe" element={<Receipe />} />
           <Route path="/stock-report/date-wise-stock-report" element={<Stockreport />} />

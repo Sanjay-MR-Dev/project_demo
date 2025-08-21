@@ -1,7 +1,7 @@
 import { Page, expect } from '@playwright/test';
 
 
-export class ItemSubGroupPage {
+export default class ItemSubGroupPage {
     readonly page: Page;
     readonly menu = '#menu';
     readonly inventoryMaster = '#menu-inventorymaster';

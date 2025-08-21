@@ -95,10 +95,15 @@ export default defineConfig([
     },
     rules: {
       ...pluginReact.rules,
+      "react/prop-types":"off"
     },
     settings: {
       react: {
         version: "detect",
+        "import/resolver":{
+          "typescript" : {}
+        }
+
       },
     },
   },

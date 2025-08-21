@@ -1,13 +1,14 @@
 import { test } from '@playwright/test';
-import { LoginPage } from '../testingpage/loginPage';
-import { logoutPage } from '../testingpage/logoutPage';
-import { ItemGroupPage } from '../testingpage/itemGroupPage';
-import { ItemSubGroupPage } from '../testingpage/itemSubGroupPage';
+import  LoginPage  from '../testingpage/loginPage';
+import  logoutPage  from '../testingpage/logoutPage';
+import  ItemSubGroupPage  from '../testingpage/itemSubGroupPage';
+import ItemGroupPages from '../testingpage/itemGroupPage';
+
 
 test("Full Flow Testing", async ({ page }) => {
 
     const login = new LoginPage(page);
-    const itemgroup = new ItemGroupPage(page);
+    const itemgroup = new ItemGroupPages(page);
     const itemsubgroup = new ItemSubGroupPage(page);
     const logout = new logoutPage(page);
 
@@ -40,7 +41,10 @@ test("Full Flow Testing", async ({ page }) => {
         await itemsubgroup.addItemSubGroup(item.value, item.group);
     }
 
+    
+
     await logout.accountClick();
     await logout.logoutNavigate();
+
 
 });

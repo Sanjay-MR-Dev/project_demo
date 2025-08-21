@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { MRT_ColumnDef } from 'material-react-table';
 import {
     Box, Modal, Typography, Stack,
-    colors,
     IconButton
 } from '@mui/material';
 import { useFormik } from 'formik';
@@ -175,6 +174,7 @@ const ItemGroup: React.FC = () => {
                 setSnackCondition("error");
                 setSnackBarMessage("Error while deleting");
                 setOpenSnackar(true);
+                console.log("Error in delete",err);
             }
         }
         setOpenDeleteModal(false);

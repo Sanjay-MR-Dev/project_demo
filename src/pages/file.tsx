@@ -48,7 +48,11 @@ const MyFile: React.FC = () => {
 
 
     const columns: MRT_ColumnDef<RMItem>[] = [
-        { Cell: ({ row }) => row.index + 1, header: '#', id: 'serial-number' },
+        { 
+        Cell: ({ row }) => row.index + 1, 
+        header: '#', 
+        id: 'serial-number' 
+        },
         {
             accessorKey: 'action', header: 'Action', Cell: ({ row }) => (
                 <Stack direction="row" spacing={1}>
@@ -221,6 +225,7 @@ const MyFile: React.FC = () => {
                 setSnackBarMessage("Deleted Successfully");
                 setOpenSnackar(true);
             } catch (err) {
+                console.log("Error in Delete",err)
                 setSnackCondition("error");
                 setSnackBarMessage("Error while deleting");
                 setOpenSnackar(true);

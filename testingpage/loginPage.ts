@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class LoginPage {
+export default class LoginPage {
     readonly page: Page;
     readonly username = '#username';
     readonly password = '#password';

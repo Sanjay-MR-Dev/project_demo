@@ -1,6 +1,6 @@
 import { Page, expect } from '@playwright/test';
 
-export class logoutPage {
+export default class logoutPage {
     readonly page: Page;
     readonly account = '#account-button'
     readonly logoutButton = 'text=logout';

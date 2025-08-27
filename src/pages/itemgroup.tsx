@@ -111,7 +111,6 @@ const ItemGroup: React.FC = () => {
                     }
                 }
 
-
                 let payload = {
                     item_group: values.item_group,
                 }
